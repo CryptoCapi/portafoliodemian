@@ -116,7 +116,9 @@ function updateTaskbar() {
     'calculator': '🧮 Calculadora',
     'explorer': '📁 Explorador',
     'mediaplayer': '🎵 Reproductor',
-    'sales': '💰 Ventas'
+    'sales': '💰 Ventas',
+    // 👇 añadido para que la vista previa salga en la barra
+    'preview': '🖼️ Vista Previa'
   };
 
   document.querySelectorAll('.window').forEach(win => {
@@ -653,6 +655,26 @@ function startProgress() {
       if (isPlaying) progress = 0;
     }
   }, 100);
+}
+
+/* ========= Vista Previa (para esculturas y más) ========= */
+function showPreview(imgSrc, title, driveUrl) {
+  const win = document.getElementById('preview');
+  const img = document.getElementById('previewImg');
+  const ttl = document.getElementById('previewTitle');
+  const drv = document.getElementById('previewDrive');
+
+  img.src = imgSrc;
+  img.alt = title || '';
+  ttl.textContent = title || 'Vista Previa';
+  if (drv) {
+    drv.href = driveUrl || '#';
+    drv.style.display = driveUrl ? 'inline' : 'none';
+  }
+
+  // Mostrar e integrar con el gestor de ventanas
+  win.style.display = 'block';
+  if (typeof openWindow === 'function') openWindow('preview');
 }
 
 /* --- Bloque final copiado tal cual del snippet incluido ---
