@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio XP - Demian Tenorio Rico (@dmxn_08)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tahoma:wght@400;700&display=swap');
+        
+        * {
+            font-family: 'Tahoma', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            transition: background 0.8s ease-in-out;
+        }
+
+        /* Fondos temáticos XP */
+        .bg-principal {
+            background: url('https://i.ytimg.com/vi/ID_aSxk-1FM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBzy8fx8Cn5p_aRwaB2fMCGYv72IQ') center/cover no-repeat;
+        }
+        
+        .bg-bliss {
+            background: url('https://i2.wp.com/hipertextual.com/wp-content/uploads/2014/03/windows_xp_bliss-wide.jpg?fit=1920%2C1200&ssl=1') center/cover no-repeat;
+        }
+        
+        .bg-azul {
+            background: linear-gradient(135deg, #3742fa 0%, #2f3542 100%);
+        }
+        
+        .bg-luna {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+        }
+        
+        .bg-energia {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #feca57 100%);
+        }
+        
+        .bg-otono {
+            background: linear-gradient(135deg, #f39c12 0%, #d35400 50%, #c0392b 100%);
+        }
+        
+        .bg-naturaleza {
+            background: url('https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg') center/cover no-repeat;
+        }
+
+        /* Escritorio */
+        .desktop {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Iconos del escritorio */
+        .desktop-icons {
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 100px);
+            grid-template-rows: repeat(auto-fill, 120px);
+            gap: 25px;
+            align-content: start;
+        }
+
+        .desktop-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .desktop-icon:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .desktop-icon:hover .icon-image {
+            transform: scale(1.05);
+            filter: contrast(1.5) saturate(1.4) brightness(1.2);
+        }
+
+        .desktop-icon.selected {
+            background: rgba(0,84,227,0.3);
+            border: 1px dotted #fff;
+        }
+
+        .icon-image {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 4px;
+            font-size: 40px;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            filter: contrast(1.4) saturate(1.3) brightness(1.1);
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+            transform: scale(1.0);
+            transition: transform 0.1s ease;
+        }
+
+        .icon-label {
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            word-wrap: break-word;
+            max-width: 80px;
+        }
+
+        /* Barra de tareas */
+        .taskbar {
+            height: 30px;
+            background: linear-gradient(180deg, #245edb 0%, #1941a5 50%, #1941a5 100%);
+            border-top: 1px solid #4a90e2;
+            display: flex;
+            align-items: center;
+            padding: 0 4px;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .start-button {
+            background: linear-gradient(180deg, #3d6ddb 0%, #1941a5 100%);
+            border: 1px outset #4a90e2;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 4px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .start-button:hover {
+            background: linear-gradient(180deg, #4a7ae8 0%, #2952b8 100%);
+        }
+
+        .start-button:active {
+            border: 1px inset #4a90e2;
+        }
+
+        .taskbar-buttons {
+            display: flex;
+            gap: 2px;
+            margin-left: 8px;
+            flex: 1;
+        }
+
+        .taskbar-button {
+            background: linear-gradient(180deg, #3d6ddb 0%, #1941a5 100%);
+            border: 1px outset #4a90e2;
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            cursor: pointer;
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: none;
+        }
+
+        .taskbar-button.active {
+            border: 1px inset #4a90e2;
+            background: linear-gradient(180deg, #2952b8 0%, #1941a5 100%);
+        }
+
+        .taskbar-button:hover {
+            background: linear-gradient(180deg, #4a7ae8 0%, #2952b8 100%);
+        }
+
+        .taskbar-time {
+            margin-left: auto;
+            color: white;
+            font-size: 11px;
+            padding: 4px 8px;
+            border: 1px inset #1941a5;
+            background: #1941a5;
+        }
+
+        /* Ventanas con animaciones */
+        .window {
+            position: absolute;
+            background: #ece9d8;
+            border: 2px outset #ece9d8;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            min-width: 300px;
+            min-height: 200px;
+            display: none;
+            z-index: 100;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .window.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .window.minimizing {
+            animation: minimizeToTaskbar 0.4s ease-in-out forwards;
+        }
+
+        .window.restoring {
+            animation: restoreFromTaskbar 0.3s ease-out forwards;
+        }
+
+        @keyframes minimizeToTaskbar {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.1) translateY(400px) translateX(-200px);
+            }
+        }
+
+        @keyframes restoreFromTaskbar {
+            0% {
+                opacity: 0;
+                transform: scale(0.1) translateY(400px) translateX(-200px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0) translateX(0);
+            }
+        }
+
+        .window.active {
+            z-index: 200;
+        }
+
+        .title-bar {
+            background: linear-gradient(90deg, #0054e3 0%, #0054e3 8%, #40a0ff 100%);
+            color: white;
+            padding: 2px 4px;
+            font-size: 11px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 2px;
+        }
+
+        .window-control {
+            width: 16px;
+            height: 14px;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px outset #c0c0c0;
+            background: #c0c0c0;
+        }
+
+        .window-control:hover {
+            border: 1px inset #c0c0c0;
+        }
+
+        .window.maximized {
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: calc(100vh - 30px) !important;
+            z-index: 300;
+        }
+
+        .window-content {
+            padding: 12px;
+            height: calc(100% - 25px);
+            overflow-y: auto;
+        }
+
+        /* Formulario de contacto */
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 4px;
+            border: 1px inset #c0c0c0;
+            font-size: 11px;
+            font-family: 'Tahoma', sans-serif;
+        }
+
+        .form-textarea {
+            width: 100%;
+            height: 80px;
+            padding: 4px;
+            border: 1px inset #c0c0c0;
+            font-size: 11px;
+            font-family: 'Tahoma', sans-serif;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(180deg, #ece9d8 0%, #d4d0c8 100%);
+            border: 2px outset #ece9d8;
+            padding: 6px 16px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .form-button:hover {
+            background: linear-gradient(180deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+
+        .form-button:active {
+            border: 2px inset #ece9d8;
+        }
+
+        .form-button.primary {
+            background: linear-gradient(180deg, #0054e3 0%, #003db8 100%);
+            color: white;
+            border: 2px outset #0054e3;
+        }
+
+        .form-button.primary:hover {
+            background: linear-gradient(180deg, #1a65f0 0%, #0048c8 100%);
+        }
+
+        .form-button.primary:active {
+            border: 2px inset #0054e3;
+        }
+
+        /* Galería de arte */
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .art-piece {
+            border: 2px inset #ece9d8;
+            padding: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .art-piece:hover {
+            border: 2px outset #ece9d8;
+        }
+
+        .art-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: 1px solid #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        /* Selector de fondos */
+        .wallpaper-selector {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ece9d8;
+            border: 2px outset #ece9d8;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+        }
+
+        .wallpaper-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 12px;
+        }
+
+        .wallpaper-option {
+            width: 80px;
+            height: 60px;
+            border: 2px inset #ece9d8;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wallpaper-option:hover {
+            border: 2px outset #ece9d8;
+        }
+
+        .wallpaper-option.selected {
+            border: 2px solid #0054e3;
+        }
+
+        .wallpaper-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 9px;
+            text-align: center;
+            padding: 1px;
+        }
+
+        /* Notificaciones */
+        .notification {
+            position: fixed;
+            bottom: 40px;
+            right: 20px;
+            background: #fffbf0;
+            border: 2px outset #ece9d8;
+            padding: 12px;
+            max-width: 300px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification-title {
+            font-weight: bold;
+            font-size: 11px;
+            margin-bottom: 4px;
+            color: #0054e3;
+        }
+
+        .notification-message {
+            font-size: 10px;
+            line-height: 1.3;
+        }
+    </style>
+</head>
+<body class="bg-principal">
+
+    <div class="desktop">
+        <!-- Iconos del escritorio -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" ondblclick="openWindow('portfolio')">
+                <div class="icon-image">🎨</div>
+                <div class="icon-label">Demian (@dmxn_08)</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('about')">
+                <div class="icon-image">👩‍🎨</div>
+                <div class="icon-label">Sobre Mí</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('gallery')">
+                <div class="icon-image">🖼️</div>
+                <div class="icon-label">Galería</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('contact')">
+                <div class="icon-image">📧</div>
+                <div class="icon-label">Contacto</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('paint')">
+                <div class="icon-image">🎨</div>
+                <div class="icon-label">Paint</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('notepad')">
+                <div class="icon-image">📝</div>
+                <div class="icon-label">Bloc de Notas</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('calculator')">
+                <div class="icon-image">🧮</div>
+                <div class="icon-label">Calculadora</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('explorer')">
+                <div class="icon-image">📁</div>
+                <div class="icon-label">Explorador</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('mediaplayer')">
+                <div class="icon-image">🎵</div>
+                <div class="icon-label">Reproductor</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWindow('sales')">
+                <div class="icon-image">💰</div>
+                <div class="icon-label">Ventas</div>
+            </div>
+            
+            <div class="desktop-icon" ondblclick="openWallpaperSelector()">
+                <div class="icon-image">🌈</div>
+                <div class="icon-label">Cambiar Fondo</div>
+            </div>
+        </div>
+
+        <!-- Barra de tareas -->
+        <div class="taskbar">
+            <button class="start-button">
+                <img src="https://www.rw-designer.com/icon-image/18835-256x256x32.png" alt="Windows XP" style="width: 16px; height: 16px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span style="display: none;">🪟</span>
+                <span>Inicio</span>
+            </button>
+            
+            <div class="taskbar-buttons" id="taskbarButtons">
+                <!-- Los botones de ventanas minimizadas aparecerán aquí -->
+            </div>
+            
+            <div class="taskbar-time" id="clock">
+                12:00 PM
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Portfolio -->
+    <div id="portfolio" class="window" style="top: 100px; left: 100px; width: 500px; height: 400px;">
+        <div class="title-bar">
+            <span>🎨 Demian Tenorio Rico (@dmxn_08) - Portafolio</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('portfolio')">_</div>
+                <div class="window-control" onclick="maximizeWindow('portfolio')">□</div>
+                <div class="window-control" onclick="closeWindow('portfolio')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="margin-top: 0; color: #0054e3;">Demian Tenorio Rico (@dmxn_08)</h2>
+            <h3 style="color: #666; margin-top: -8px;">Artista Visual Transgénero - Guanajuato</h3>
+            
+            <div style="background: #f0f0f0; padding: 12px; border: 1px inset #ece9d8; margin: 16px 0;">
+                <h4 style="margin-top: 0; color: #0054e3;">Semblanza</h4>
+                <p style="font-size: 12px; line-height: 1.5; text-align: justify;">
+                    Soy Demian Tenorio Rico, conocido en Internet como @dmxn_08, un artista transgénero y guanajuatense. En 2023 ingresé a la Licenciatura de Artes Visuales en la Universidad de Guanajuato.
+                </p>
+                <p style="font-size: 12px; line-height: 1.5; text-align: justify;">
+                    El propósito de mi obra es crear un espacio divertido y contrastante con lo real e irreal. Las técnicas que suelo usar son dibujo (principalmente con colores), escultura, arte objeto, bisutería y dibujo digital.
+                </p>
+                <p style="font-size: 12px; line-height: 1.5; text-align: justify; font-style: italic;">
+                    Con estas técnicas exploro temas y eventos de la cultura pop para invitar al pensamiento de la sátira y descontextualización.
+                </p>
+            </div>
+            
+            <h3>Técnicas y Especialidades:</h3>
+            <ul>
+                <li>🎨 Dibujo (principalmente con colores)</li>
+                <li>🗿 Escultura y Arte Objeto</li>
+                <li>💎 Bisutería Artística</li>
+                <li>💻 Dibujo Digital</li>
+                <li>🎭 Sátira y Descontextualización</li>
+                <li>🌐 Cultura Pop y Contraste Real/Irreal</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ventana Sobre Mí -->
+    <div id="about" class="window" style="top: 150px; left: 200px; width: 450px; height: 350px;">
+        <div class="title-bar">
+            <span>👩‍🎨 Sobre Mí</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('about')">_</div>
+                <div class="window-control" onclick="maximizeWindow('about')">□</div>
+                <div class="window-control" onclick="closeWindow('about')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="margin-top: 0; color: #0054e3;">Sobre Demian Tenorio Rico</h2>
+            <p>Artista transgénero y guanajuatense, conocido en Internet como @dmxn_08. Estudiante de la Licenciatura de Artes Visuales en la Universidad de Guanajuato desde 2023.</p>
+            
+            <h3>Enfoque Artístico:</h3>
+            <p>🎨 Dibujo con Colores<br>
+            🗿 Escultura y Arte Objeto<br>
+            💎 Bisutería Artística<br>
+            💻 Dibujo Digital<br>
+            🎭 Sátira y Descontextualización<br>
+            🌐 Cultura Pop</p>
+            
+            <h3>Propósito Artístico:</h3>
+            <p>Mi obra busca crear un espacio divertido y contrastante con lo real e irreal. Exploro temas y eventos de la cultura pop para invitar al pensamiento de la sátira y descontextualización, generando espacios donde lo cotidiano se transforma en algo extraordinario y reflexivo.</p>
+        </div>
+    </div>
+
+    <!-- Ventana Galería -->
+    <div id="gallery" class="window" style="top: 80px; left: 300px; width: 600px; height: 500px;">
+        <div class="title-bar">
+            <span>🖼️ Galería de Arte</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('gallery')">_</div>
+                <div class="window-control" onclick="maximizeWindow('gallery')">□</div>
+                <div class="window-control" onclick="closeWindow('gallery')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="margin-top: 0; color: #0054e3;">Galería de Arte - Demian Tenorio Rico</h2>
+            
+            <!-- Navegación por categorías -->
+            <div style="background: #f0f0f0; padding: 8px; border: 1px inset #ece9d8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px;">
+                <button onclick="showCategory('all')" id="btn-all" class="category-btn active" style="padding: 4px 8px; font-size: 10px; background: #0054e3; color: white; border: 1px outset #0054e3; cursor: pointer;">Todas</button>
+                <button onclick="showCategory('tarot')" id="btn-tarot" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">🔮 Tarot</button>
+                <button onclick="showCategory('dibujo-tradicional')" id="btn-dibujo-tradicional" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">✏️ Dibujo Tradicional</button>
+                <button onclick="showCategory('video-arte')" id="btn-video-arte" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">🎬 Video Arte/Animación</button>
+                <button onclick="showCategory('dibujo-digital')" id="btn-dibujo-digital" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">💻 Dibujo Digital</button>
+                <button onclick="showCategory('escultura')" id="btn-escultura" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">🗿 Escultura</button>
+                <button onclick="showCategory('collage')" id="btn-collage" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">📄 Collage</button>
+                <button onclick="showCategory('bisuteria')" id="btn-bisuteria" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">💎 Bisutería</button>
+            </div>
+            
+            <!-- Galería de obras -->
+            <div class="art-gallery" id="artGallery">
+                
+                <!-- TAROT -->
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_8ae098bcabcc4eb4bace872d61f30ee9~mv2.jpg/v1/fill/w_470,h_702,al_c,lg_1,q_80,enc_avif,quality_auto/fad2d0_8ae098bcabcc4eb4bace872d61f30ee9~mv2.jpg" alt="La Justicia - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Justicia</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Justicia</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_bd432c778de54d23b1117b164fe2eb9c~mv2.jpg/v1/fill/w_466,h_702,al_c,lg_1,q_80,enc_avif,quality_auto/fad2d0_bd432c778de54d23b1117b164fe2eb9c~mv2.jpg" alt="La Emperatriz - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #9b59b6, #e74c3c); display: none;">🔮 La Emperatriz</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Emperatriz</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_42982ed0beab4c6e9c982c0f439e368b~mv2.jpg/v1/fill/w_498,h_701,al_c,lg_1,q_80,enc_avif,quality_auto/fad2d0_42982ed0beab4c6e9c982c0f439e368b~mv2.jpg" alt="El Mundo - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #9b59b6, #e74c3c); display: none;">🔮 El Mundo</div>
+                    <div style="font-size: 11px; font-weight: bold;">El Mundo</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_e46082407b024f59a35e73b341d45b2e~mv2.jpg/v1/fill/w_459,h_702,al_c,lg_1,q_80,enc_avif,quality_auto/fad2d0_e46082407b024f59a35e73b341d45b2e~mv2.jpg" alt="Los Enamorados - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #e91e63, #ff6b6b); display: none;">💕 Los Enamorados</div>
+                    <div style="font-size: 11px; font-weight: bold;">Los Enamorados</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_e54a9ec2083b489993f88668a383b84c~mv2.jpg/v1/fill/w_474,h_701,al_c,lg_1,q_80,enc_avif,quality_auto/fad2d0_e54a9ec2083b489993f88668a383b84c~mv2.jpg" alt="La Estrella - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #3498db, #9b59b6); display: none;">⭐ La Estrella</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Estrella</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_e778cf85141f49e08b7b6f7390684e3b~mv2.jpg/v1/fill/w_341,h_516,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_e778cf85141f49e08b7b6f7390684e3b~mv2.jpg" alt="El Loco - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #f39c12, #e67e22); display: none;">🃏 El Loco</div>
+                    <div style="font-size: 11px; font-weight: bold;">El Loco</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_01b217a0e9e7499a8b2fcee628cf36bb~mv2.jpg/v1/fill/w_341,h_482,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_01b217a0e9e7499a8b2fcee628cf36bb~mv2.jpg" alt="El Mago - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #f39c12); display: none;">🎩 El Mago</div>
+                    <div style="font-size: 11px; font-weight: bold;">El Mago</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_525e60db2567465eb88002c9262dc8b1~mv2.jpg/v1/fill/w_341,h_480,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_525e60db2567465eb88002c9262dc8b1~mv2.jpg" alt="La Gran Sacerdotisa - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #3498db, #8e44ad); display: none;">🔮 La Gran Sacerdotisa</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Gran Sacerdotisa</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_a6d069886d134fe7bc62f7a404be3d5b~mv2.jpg/v1/fill/w_341,h_470,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_a6d069886d134fe7bc62f7a404be3d5b~mv2.jpg" alt="El Hierofante - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #f39c12); display: none;">⛪ El Hierofante</div>
+                    <div style="font-size: 11px; font-weight: bold;">El Hierofante</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_25356538ad6d4884834de201099a353f~mv2.jpg/v1/fill/w_341,h_520,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_25356538ad6d4884834de201099a353f~mv2.jpg" alt="El Emperador - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #c0392b, #f39c12); display: none;">👑 El Emperador</div>
+                    <div style="font-size: 11px; font-weight: bold;">El Emperador</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_1588a3c162054b539f2728cfa251209d~mv2.jpg/v1/fill/w_341,h_513,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_1588a3c162054b539f2728cfa251209d~mv2.jpg" alt="La Carroza - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #f39c12); display: none;">🏛️ La Carroza</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Carroza</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_a2220ab2d67d4ab6a01b93fb3f662672~mv2.jpg/v1/fill/w_341,h_503,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_a2220ab2d67d4ab6a01b93fb3f662672~mv2.jpg" alt="La Rueda de la Fortuna - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #f39c12); display: none;">🎡 La Rueda de la Fortuna</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Rueda de la Fortuna</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_b0f2b3de7c284a6cbe95d757036d6b30~mv2.jpg/v1/fill/w_341,h_473,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_b0f2b3de7c284a6cbe95d757036d6b30~mv2.jpg" alt="La Fuerza - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #e74c3c, #f39c12); display: none;">💪 La Fuerza</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Fuerza</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <img src="https://static.wixstatic.com/media/fad2d0_e9d026730fa34615a8c2113aa498ab7a~mv2.jpg/v1/fill/w_341,h_479,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_e9d026730fa34615a8c2113aa498ab7a~mv2.jpg" alt="El Ermitaño - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #34495e); display: none;">🏮 El Ermitaño</div>
+                    <div style="font-size: 11px; font-weight: bold;">El Ermitaño</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="tarot">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #2c3e50, #f39c12);">🌙 La Luna</div>
+                    <div style="font-size: 11px; font-weight: bold;">La Luna</div>
+                    <div style="font-size: 9px; color: #666;">Tarot • 2023</div>
+                </div>
+                
+                <!-- DIBUJO TRADICIONAL -->
+                <div class="art-piece" data-category="dibujo-tradicional">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #e67e22, #f1c40f);">✏️ Retrato</div>
+                    <div style="font-size: 11px; font-weight: bold;">Retrato a Lápiz</div>
+                    <div style="font-size: 9px; color: #666;">Dibujo Tradicional • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="dibujo-tradicional">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #27ae60, #2ecc71);">🌸 Naturaleza</div>
+                    <div style="font-size: 11px; font-weight: bold;">Flores con Colores</div>
+                    <div style="font-size: 9px; color: #666;">Dibujo Tradicional • 2023</div>
+                </div>
+                
+                <!-- VIDEO ARTE/ANIMACIÓN -->
+                <div class="art-piece" data-category="video-arte">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #e74c3c, #c0392b);">🎬 Animación</div>
+                    <div style="font-size: 11px; font-weight: bold;">Loop Abstracto</div>
+                    <div style="font-size: 9px; color: #666;">Video Arte • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="video-arte">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #9b59b6);">📱 Stop Motion</div>
+                    <div style="font-size: 11px; font-weight: bold;">Metamorfosis</div>
+                    <div style="font-size: 9px; color: #666;">Animación • 2023</div>
+                </div>
+                
+                <!-- DIBUJO DIGITAL -->
+                <div class="art-piece" data-category="dibujo-digital">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #3498db, #2980b9);">💻 Digital</div>
+                    <div style="font-size: 11px; font-weight: bold;">Ilustración Pop</div>
+                    <div style="font-size: 9px; color: #666;">Dibujo Digital • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="dibujo-digital">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #f39c12, #e67e22);">🎨 Personaje</div>
+                    <div style="font-size: 11px; font-weight: bold;">Avatar Digital</div>
+                    <div style="font-size: 9px; color: #666;">Dibujo Digital • 2023</div>
+                </div>
+                
+                <!-- ESCULTURA -->
+                <div class="art-piece" data-category="escultura">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #95a5a6, #7f8c8d);">🗿 Escultura</div>
+                    <div style="font-size: 11px; font-weight: bold;">Forma Abstracta</div>
+                    <div style="font-size: 9px; color: #666;">Escultura • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="escultura">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #34495e, #2c3e50);">🏺 Arte Objeto</div>
+                    <div style="font-size: 11px; font-weight: bold;">Objeto Encontrado</div>
+                    <div style="font-size: 9px; color: #666;">Arte Objeto • 2023</div>
+                </div>
+                
+                <!-- COLLAGE -->
+                <div class="art-piece" data-category="collage">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #e91e63, #ad1457);">📄 Collage</div>
+                    <div style="font-size: 11px; font-weight: bold;">Recortes Urbanos</div>
+                    <div style="font-size: 9px; color: #666;">Collage • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="collage">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #ff5722, #d84315);">🗞️ Mixto</div>
+                    <div style="font-size: 11px; font-weight: bold;">Técnica Mixta</div>
+                    <div style="font-size: 9px; color: #666;">Collage • 2023</div>
+                </div>
+                
+                <!-- BISUTERÍA -->
+                <div class="art-piece" data-category="bisuteria">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #ff9800, #f57c00);">💎 Bisutería</div>
+                    <div style="font-size: 11px; font-weight: bold;">Collar Artístico</div>
+                    <div style="font-size: 9px; color: #666;">Bisutería • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="bisuteria">
+                    <div class="art-placeholder" style="background: linear-gradient(45deg, #673ab7, #512da8);">✨ Aretes</div>
+                    <div style="font-size: 11px; font-weight: bold;">Aretes Únicos</div>
+                    <div style="font-size: 9px; color: #666;">Bisutería • 2023</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Contacto con Formulario -->
+    <div id="contact" class="window" style="top: 200px; left: 400px; width: 500px; height: 550px;">
+        <div class="title-bar">
+            <span>📧 Contacto - Formulario</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('contact')">_</div>
+                <div class="window-control" onclick="maximizeWindow('contact')">□</div>
+                <div class="window-control" onclick="closeWindow('contact')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="margin-top: 0; color: #0054e3;">Contacto - Demian Tenorio Rico</h2>
+            <p style="font-size: 12px; margin-bottom: 16px;">¿Buscas arte que explore la cultura pop con sátira y descontextualización? ¡Conectemos para crear espacios divertidos entre lo real e irreal!</p>
+            
+            <!-- Información de contacto -->
+            <div style="background: #f0f0f0; padding: 12px; border: 1px inset #ece9d8; margin-bottom: 16px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px;">
+                    <div><strong>📧 Email:</strong> demian.tenorio@ejemplo.com</div>
+                    <div><strong>📱 Instagram:</strong> @dmxn_08</div>
+                    <div><strong>🎓 Universidad:</strong> Universidad de Guanajuato</div>
+                    <div><strong>📍 Ubicación:</strong> Guanajuato, México</div>
+                </div>
+            </div>
+            
+            <!-- Formulario de contacto -->
+            <form id="contactForm" onsubmit="submitContactForm(event)">
+                <div class="form-group">
+                    <label class="form-label" for="contactName">Nombre completo *</label>
+                    <input type="text" id="contactName" class="form-input" required placeholder="Tu nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="contactEmail">Correo electrónico *</label>
+                    <input type="email" id="contactEmail" class="form-input" required placeholder="tu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="contactPhone">Teléfono (opcional)</label>
+                    <input type="tel" id="contactPhone" class="form-input" placeholder="+52 123 456 7890">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="contactService">Tipo de servicio</label>
+                    <select id="contactService" class="form-input">
+                        <option value="">Selecciona un servicio...</option>
+                        <option value="retrato">Retrato personalizado</option>
+                        <option value="tarot">Cartas de Tarot</option>
+                        <option value="digital">Ilustración digital</option>
+                        <option value="escultura">Escultura/Arte objeto</option>
+                        <option value="bisuteria">Bisutería artística</option>
+                        <option value="corporativo">Proyecto corporativo</option>
+                        <option value="otro">Otro proyecto</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="contactBudget">Presupuesto aproximado</label>
+                    <select id="contactBudget" class="form-input">
+                        <option value="">Selecciona un rango...</option>
+                        <option value="200-500">$200 - $500 MXN</option>
+                        <option value="500-1000">$500 - $1,000 MXN</option>
+                        <option value="1000-2000">$1,000 - $2,000 MXN</option>
+                        <option value="2000+">Más de $2,000 MXN</option>
+                        <option value="consultar">A consultar</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="contactMessage">Describe tu proyecto *</label>
+                    <textarea id="contactMessage" class="form-textarea" required placeholder="Cuéntame sobre tu idea, estilo preferido, fechas importantes, referencias, etc."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label style="display: flex; align-items: center; font-size: 11px; gap: 4px;">
+                        <input type="checkbox" id="contactNewsletter" style="margin: 0;">
+                        Quiero recibir actualizaciones sobre nuevas obras y proyectos
+                    </label>
+                </div>
+                
+                <div style="text-align: center; margin-top: 16px;">
+                    <button type="submit" class="form-button primary">📧 Enviar Mensaje</button>
+                    <button type="button" class="form-button" onclick="clearContactForm()">🗑️ Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Ventana Paint -->
+    <div id="paint" class="window" style="top: 50px; left: 50px; width: 700px; height: 500px;">
+        <div class="title-bar">
+            <span>🎨 Paint</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('paint')">_</div>
+                <div class="window-control" onclick="maximizeWindow('paint')">□</div>
+                <div class="window-control" onclick="closeWindow('paint')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <div style="background: #c0c0c0; padding: 4px; border-bottom: 1px solid #999;">
+                <button onclick="clearCanvas()" style="margin-right: 8px; padding: 2px 8px; font-size: 11px;">Limpiar</button>
+                <input type="color" id="colorPicker" value="#000000" style="margin-right: 8px;">
+                <input type="range" id="brushSize" min="1" max="20" value="3" style="margin-right: 8px;">
+                <span style="font-size: 11px;">Tamaño: <span id="sizeDisplay">3</span>px</span>
+            </div>
+            <canvas id="paintCanvas" width="680" height="440" style="border: 1px solid #999; cursor: crosshair; background: white;"></canvas>
+        </div>
+    </div>
+
+    <!-- Ventana Bloc de Notas -->
+    <div id="notepad" class="window" style="top: 80px; left: 120px; width: 500px; height: 400px;">
+        <div class="title-bar">
+            <span>📝 Bloc de notas - Sin título</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('notepad')">_</div>
+                <div class="window-control" onclick="maximizeWindow('notepad')">□</div>
+                <div class="window-control" onclick="closeWindow('notepad')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <div style="background: #c0c0c0; padding: 4px; border-bottom: 1px solid #999;">
+                <button onclick="saveNote()" style="margin-right: 8px; padding: 2px 8px; font-size: 11px;">Guardar</button>
+                <button onclick="clearNote()" style="margin-right: 8px; padding: 2px 8px; font-size: 11px;">Nuevo</button>
+            </div>
+            <textarea id="notepadText" style="width: 100%; height: calc(100% - 35px); border: none; font-family: 'Courier New', monospace; font-size: 12px; padding: 8px; resize: none; outline: none;" placeholder="Escribe aquí tus notas..."></textarea>
+        </div>
+    </div>
+
+    <!-- Ventana Calculadora -->
+    <div id="calculator" class="window" style="top: 120px; left: 200px; width: 250px; height: 320px;">
+        <div class="title-bar">
+            <span>🧮 Calculadora</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('calculator')">_</div>
+                <div class="window-control" onclick="maximizeWindow('calculator')">□</div>
+                <div class="window-control" onclick="closeWindow('calculator')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 8px;">
+            <div style="background: #000; color: #0f0; padding: 8px; margin-bottom: 8px; text-align: right; font-family: 'Courier New', monospace; font-size: 18px; border: 1px inset #c0c0c0;">
+                <div id="calcDisplay">0</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;">
+                <button onclick="clearCalc()" style="grid-column: span 2; padding: 8px; font-size: 12px;">C</button>
+                <button onclick="calcOperation('/')" style="padding: 8px; font-size: 12px;">÷</button>
+                <button onclick="calcOperation('*')" style="padding: 8px; font-size: 12px;">×</button>
+                
+                <button onclick="calcNumber('7')" style="padding: 8px; font-size: 12px;">7</button>
+                <button onclick="calcNumber('8')" style="padding: 8px; font-size: 12px;">8</button>
+                <button onclick="calcNumber('9')" style="padding: 8px; font-size: 12px;">9</button>
+                <button onclick="calcOperation('-')" style="padding: 8px; font-size: 12px;">-</button>
+                
+                <button onclick="calcNumber('4')" style="padding: 8px; font-size: 12px;">4</button>
+                <button onclick="calcNumber('5')" style="padding: 8px; font-size: 12px;">5</button>
+                <button onclick="calcNumber('6')" style="padding: 8px; font-size: 12px;">6</button>
+                <button onclick="calcOperation('+')" style="padding: 8px; font-size: 12px;">+</button>
+                
+                <button onclick="calcNumber('1')" style="padding: 8px; font-size: 12px;">1</button>
+                <button onclick="calcNumber('2')" style="padding: 8px; font-size: 12px;">2</button>
+                <button onclick="calcNumber('3')" style="padding: 8px; font-size: 12px;">3</button>
+                <button onclick="calcEquals()" style="padding: 8px; font-size: 12px; grid-row: span 2; background: #0054e3; color: white;">=</button>
+                
+                <button onclick="calcNumber('0')" style="grid-column: span 2; padding: 8px; font-size: 12px;">0</button>
+                <button onclick="calcNumber('.')" style="padding: 8px; font-size: 12px;">.</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Explorador -->
+    <div id="explorer" class="window" style="top: 60px; left: 250px; width: 600px; height: 450px;">
+        <div class="title-bar">
+            <span>📁 Explorador de Windows - Mis Documentos</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('explorer')">_</div>
+                <div class="window-control" onclick="maximizeWindow('explorer')">□</div>
+                <div class="window-control" onclick="closeWindow('explorer')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <div style="background: #c0c0c0; padding: 4px; border-bottom: 1px solid #999; display: flex; align-items: center;">
+                <span style="font-size: 11px; margin-right: 12px;">📍 C:\Mis Documentos\Portfolio</span>
+            </div>
+            <div style="display: flex; height: calc(100% - 30px);">
+                <div style="width: 150px; background: #f0f0f0; border-right: 1px solid #999; padding: 8px;">
+                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 8px;">Carpetas</div>
+                    <div onclick="loadFolder('portfolio')" style="padding: 2px; cursor: pointer; font-size: 11px;">📁 Portfolio</div>
+                    <div onclick="loadFolder('proyectos')" style="padding: 2px; cursor: pointer; font-size: 11px;">📁 Proyectos</div>
+                    <div onclick="loadFolder('imagenes')" style="padding: 2px; cursor: pointer; font-size: 11px;">📁 Imágenes</div>
+                </div>
+                <div style="flex: 1; padding: 8px;">
+                    <div id="fileList" style="display: grid; grid-template-columns: repeat(auto-fill, 80px); gap: 8px;">
+                        <div style="text-align: center; cursor: pointer;">
+                            <div style="font-size: 32px;">📄</div>
+                            <div style="font-size: 10px;">CV.pdf</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer;">
+                            <div style="font-size: 32px;">🖼️</div>
+                            <div style="font-size: 10px;">obra1.jpg</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer;">
+                            <div style="font-size: 32px;">🖼️</div>
+                            <div style="font-size: 10px;">obra2.jpg</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer;">
+                            <div style="font-size: 32px;">📝</div>
+                            <div style="font-size: 10px;">notas.txt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Paquetes de Arte -->
+    <div id="sales" class="window" style="top: 70px; left: 350px; width: 750px; height: 600px;">
+        <div class="title-bar">
+            <span>🎨 Paquetes de Arte - Planes y Comisiones</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('sales')">_</div>
+                <div class="window-control" onclick="maximizeWindow('sales')">□</div>
+                <div class="window-control" onclick="closeWindow('sales')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <!-- Barra de herramientas -->
+            <div style="background: #c0c0c0; padding: 8px; border-bottom: 1px solid #999; display: flex; align-items: center; gap: 12px;">
+                <button onclick="addNewPackage()" style="padding: 4px 12px; font-size: 11px; background: #ece9d8; border: 2px outset #ece9d8;">➕ Nuevo Paquete</button>
+                <button onclick="exportPackages()" style="padding: 4px 12px; font-size: 11px; background: #ece9d8; border: 2px outset #ece9d8;">💾 Exportar Lista</button>
+                <div style="margin-left: auto; font-size: 11px; font-weight: bold; color: #0054e3;">
+                    📋 Catálogo de Servicios Artísticos
+                </div>
+            </div>
+            
+            <!-- Grid de paquetes -->
+            <div style="height: calc(100% - 50px); overflow-y: auto; padding: 16px;">
+                <div id="packagesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+                    
+                    <!-- Paquete Básico -->
+                    <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 24px; margin-bottom: 4px;">🎨</div>
+                            <h3 style="margin: 0; color: #1976d2; font-size: 14px;">PAQUETE BÁSICO</h3>
+                            <div style="font-size: 20px; font-weight: bold; color: #0d47a1; margin: 8px 0;">$299</div>
+                        </div>
+                        <div style="font-size: 11px; line-height: 1.4;">
+                            <div style="margin-bottom: 8px; font-weight: bold;">✨ Incluye:</div>
+                            <div>• Retrato digital simple</div>
+                            <div>• 1 revisión incluida</div>
+                            <div>• Formato digital HD</div>
+                            <div>• Entrega en 5-7 días</div>
+                            <div style="margin-top: 8px; font-weight: bold;">⏱️ Tiempo: 5-7 días</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 12px;">
+                            <button onclick="selectPackage('básico')" style="background: #1976d2; color: white; border: none; padding: 6px 16px; font-size: 11px; cursor: pointer; border-radius: 3px;">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <!-- Paquete Estándar -->
+                    <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); position: relative;">
+                        <div style="position: absolute; top: -8px; right: 8px; background: #ff6b35; color: white; padding: 2px 8px; font-size: 9px; border-radius: 10px;">POPULAR</div>
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 24px; margin-bottom: 4px;">🖼️</div>
+                            <h3 style="margin: 0; color: #7b1fa2; font-size: 14px;">PAQUETE ESTÁNDAR</h3>
+                            <div style="font-size: 20px; font-weight: bold; color: #4a148c; margin: 8px 0;">$599</div>
+                        </div>
+                        <div style="font-size: 11px; line-height: 1.4;">
+                            <div style="margin-bottom: 8px; font-weight: bold;">✨ Incluye:</div>
+                            <div>• Retrato detallado con fondo</div>
+                            <div>• 3 revisiones incluidas</div>
+                            <div>• Formato digital HD + impresión</div>
+                            <div>• Boceto preliminar</div>
+                            <div>• Entrega en 7-10 días</div>
+                            <div style="margin-top: 8px; font-weight: bold;">⏱️ Tiempo: 7-10 días</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 12px;">
+                            <button onclick="selectPackage('estándar')" style="background: #7b1fa2; color: white; border: none; padding: 6px 16px; font-size: 11px; cursor: pointer; border-radius: 3px;">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <!-- Paquete Premium -->
+                    <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 24px; margin-bottom: 4px;">👑</div>
+                            <h3 style="margin: 0; color: #e65100; font-size: 14px;">PAQUETE PREMIUM</h3>
+                            <div style="font-size: 20px; font-weight: bold; color: #bf360c; margin: 8px 0;">$999</div>
+                        </div>
+                        <div style="font-size: 11px; line-height: 1.4;">
+                            <div style="margin-bottom: 8px; font-weight: bold;">✨ Incluye:</div>
+                            <div>• Obra completa personalizada</div>
+                            <div>• Revisiones ilimitadas</div>
+                            <div>• Múltiples formatos</div>
+                            <div>• Proceso documentado</div>
+                            <div>• Marco incluido</div>
+                            <div>• Entrega en 10-14 días</div>
+                            <div style="margin-top: 8px; font-weight: bold;">⏱️ Tiempo: 10-14 días</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 12px;">
+                            <button onclick="selectPackage('premium')" style="background: #e65100; color: white; border: none; padding: 6px 16px; font-size: 11px; cursor: pointer; border-radius: 3px;">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <!-- Paquete Corporativo -->
+                    <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #e8f5e8 0%, #a5d6a7 100%);">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 24px; margin-bottom: 4px;">🏢</div>
+                            <h3 style="margin: 0; color: #2e7d32; font-size: 14px;">PAQUETE CORPORATIVO</h3>
+                            <div style="font-size: 20px; font-weight: bold; color: #1b5e20; margin: 8px 0;">$1,899</div>
+                        </div>
+                        <div style="font-size: 11px; line-height: 1.4;">
+                            <div style="margin-bottom: 8px; font-weight: bold;">✨ Incluye:</div>
+                            <div>• Logo + identidad visual</div>
+                            <div>• 5 propuestas iniciales</div>
+                            <div>• Manual de marca</div>
+                            <div>• Archivos vectoriales</div>
+                            <div>• Soporte post-entrega</div>
+                            <div>• Entrega en 14-21 días</div>
+                            <div style="margin-top: 8px; font-weight: bold;">⏱️ Tiempo: 14-21 días</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 12px;">
+                            <button onclick="selectPackage('corporativo')" style="background: #2e7d32; color: white; border: none; padding: 6px 16px; font-size: 11px; cursor: pointer; border-radius: 3px;">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <!-- Paquete Ilustración -->
+                    <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 24px; margin-bottom: 4px;">✏️</div>
+                            <h3 style="margin: 0; color: #c2185b; font-size: 14px;">ILUSTRACIÓN DIGITAL</h3>
+                            <div style="font-size: 20px; font-weight: bold; color: #880e4f; margin: 8px 0;">$449</div>
+                        </div>
+                        <div style="font-size: 11px; line-height: 1.4;">
+                            <div style="margin-bottom: 8px; font-weight: bold;">✨ Incluye:</div>
+                            <div>• Ilustración personalizada</div>
+                            <div>• Estilo cartoon/anime</div>
+                            <div>• 2 revisiones incluidas</div>
+                            <div>• Alta resolución</div>
+                            <div>• Proceso paso a paso</div>
+                            <div>• Entrega en 6-8 días</div>
+                            <div style="margin-top: 8px; font-weight: bold;">⏱️ Tiempo: 6-8 días</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 12px;">
+                            <button onclick="selectPackage('ilustración')" style="background: #c2185b; color: white; border: none; padding: 6px 16px; font-size: 11px; cursor: pointer; border-radius: 3px;">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <!-- Paquete Personalizado -->
+                    <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #f3e5f5 0%, #ce93d8 100%);">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 24px; margin-bottom: 4px;">🎯</div>
+                            <h3 style="margin: 0; color: #8e24aa; font-size: 14px;">PAQUETE PERSONALIZADO</h3>
+                            <div style="font-size: 20px; font-weight: bold; color: #4a148c; margin: 8px 0;">A Cotizar</div>
+                        </div>
+                        <div style="font-size: 11px; line-height: 1.4;">
+                            <div style="margin-bottom: 8px; font-weight: bold;">✨ Incluye:</div>
+                            <div>• Proyecto único</div>
+                            <div>• Consulta personalizada</div>
+                            <div>• Presupuesto a medida</div>
+                            <div>• Términos flexibles</div>
+                            <div>• Asesoría completa</div>
+                            <div>• Tiempo según proyecto</div>
+                            <div style="margin-top: 8px; font-weight: bold;">⏱️ Tiempo: Variable</div>
+                        </div>
+                        <div style="text-align: center; margin-top: 12px;">
+                            <button onclick="selectPackage('personalizado')" style="background: #8e24aa; color: white; border: none; padding: 6px 16px; font-size: 11px; cursor: pointer; border-radius: 3px;">Consultar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Reproductor -->
+    <div id="mediaplayer" class="window" style="top: 100px; left: 300px; width: 400px; height: 300px;">
+        <div class="title-bar">
+            <span>🎵 Reproductor de Windows Media</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('mediaplayer')">_</div>
+                <div class="window-control" onclick="maximizeWindow('mediaplayer')">□</div>
+                <div class="window-control" onclick="closeWindow('mediaplayer')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="width: 200px; height: 150px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 14px; border: 1px solid #999;">
+                    🎵 Visualización de Audio
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 15px;">
+                <div style="font-weight: bold; font-size: 12px;">Música Inspiradora para Artistas</div>
+                <div style="font-size: 11px; color: #666;">Playlist Creativa</div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button onclick="playPause()" id="playBtn" style="margin: 0 5px; padding: 5px 10px; font-size: 12px;">▶️ Play</button>
+                <button onclick="stopMusic()" style="margin: 0 5px; padding: 5px 10px; font-size: 12px;">⏹️ Stop</button>
+                <button onclick="nextTrack()" style="margin: 0 5px; padding: 5px 10px; font-size: 12px;">⏭️ Siguiente</button>
+            </div>
+            
+            <div style="margin-top: 15px;">
+                <div style="background: #c0c0c0; height: 4px; border: 1px inset #999;">
+                    <div id="progressBar" style="background: #0054e3; height: 100%; width: 0%; transition: width 0.3s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selector de fondos -->
+    <div id="wallpaperSelector" class="wallpaper-selector">
+        <div class="title-bar">
+            <span>🖼️ Propiedades de Pantalla</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWallpaperSelector()">_</div>
+                <div class="window-control" onclick="maximizeWallpaperSelector()">□</div>
+                <div class="window-control" onclick="closeWallpaperSelector()">×</div>
+            </div>
+        </div>
+        
+        <div class="wallpaper-grid">
+            <div class="wallpaper-option bg-principal" data-bg="principal" onclick="selectWallpaper('principal')">
+                <div class="wallpaper-name">Principal</div>
+            </div>
+            <div class="wallpaper-option bg-bliss" data-bg="bliss" onclick="selectWallpaper('bliss')">
+                <div class="wallpaper-name">Bliss XP</div>
+            </div>
+            <div class="wallpaper-option bg-azul" data-bg="azul" onclick="selectWallpaper('azul')">
+                <div class="wallpaper-name">Azul</div>
+            </div>
+            <div class="wallpaper-option bg-energia" data-bg="energia" onclick="selectWallpaper('energia')">
+                <div class="wallpaper-name">Energía</div>
+            </div>
+            <div class="wallpaper-option bg-otono" data-bg="otono" onclick="selectWallpaper('otono')">
+                <div class="wallpaper-name">Otoño</div>
+            </div>
+            <div class="wallpaper-option bg-naturaleza" data-bg="naturaleza" onclick="selectWallpaper('naturaleza')">
+                <div class="wallpaper-name">Naturaleza</div>
+            </div>
+        </div>
+        
+        <div style="padding: 8px; text-align: center; border-top: 1px solid #999;">
+            <button onclick="applyWallpaper()" style="background: #ece9d8; border: 2px outset #ece9d8; padding: 4px 12px; font-size: 11px; cursor: pointer; margin-right: 8px;">Aplicar</button>
+            <button onclick="closeWallpaperSelector()" style="background: #ece9d8; border: 2px outset #ece9d8; padding: 4px 12px; font-size: 11px; cursor: pointer;">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Notificaciones -->
+    <div id="notification" class="notification">
+        <div class="notification-title" id="notificationTitle">Mensaje enviado</div>
+        <div class="notification-message" id="notificationMessage">Tu mensaje ha sido enviado correctamente.</div>
+    </div>
+
+    <script>
+        let selectedWallpaper = 'principal';
+        let currentWallpaper = 'principal';
+        let minimizedWindows = new Set();
+
+        // Reloj en tiempo real
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('es-ES', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false 
+            });
+            document.getElementById('clock').textContent = time;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Gestión de ventanas con animaciones
+        let windowStates = {};
+
+        function openWindow(windowId) {
+            const window = document.getElementById(windowId);
+            
+            // Si está minimizada, restaurarla
+            if (minimizedWindows.has(windowId)) {
+                restoreWindow(windowId);
+                return;
+            }
+            
+            window.style.display = 'block';
+            // Pequeño delay para que el display se aplique antes de la animación
+            setTimeout(() => {
+                window.classList.add('show');
+            }, 10);
+            
+            bringToFront(window);
+            updateTaskbar();
+        }
+
+        function closeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            window.classList.remove('show');
+            
+            setTimeout(() => {
+                window.style.display = 'none';
+                minimizedWindows.delete(windowId);
+                updateTaskbar();
+            }, 300);
+        }
+
+        function minimizeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            window.classList.add('minimizing');
+            
+            setTimeout(() => {
+                window.style.display = 'none';
+                window.classList.remove('minimizing', 'show');
+                minimizedWindows.add(windowId);
+                updateTaskbar();
+            }, 400);
+        }
+
+        function restoreWindow(windowId) {
+            const window = document.getElementById(windowId);
+            window.style.display = 'block';
+            window.classList.add('restoring');
+            
+            setTimeout(() => {
+                window.classList.remove('restoring');
+                window.classList.add('show');
+                minimizedWindows.delete(windowId);
+                bringToFront(window);
+                updateTaskbar();
+            }, 10);
+        }
+
+        function maximizeWindow(windowId) {
+            const window = document.getElementById(windowId);
+            
+            if (window.classList.contains('maximized')) {
+                // Restaurar ventana
+                window.classList.remove('maximized');
+                if (windowStates[windowId]) {
+                    window.style.top = windowStates[windowId].top;
+                    window.style.left = windowStates[windowId].left;
+                    window.style.width = windowStates[windowId].width;
+                    window.style.height = windowStates[windowId].height;
+                }
+                // Cambiar icono del botón
+                const maximizeBtn = window.querySelector('.window-controls .window-control:nth-child(2)');
+                maximizeBtn.textContent = '□';
+            } else {
+                // Guardar estado actual
+                windowStates[windowId] = {
+                    top: window.style.top,
+                    left: window.style.left,
+                    width: window.style.width,
+                    height: window.style.height
+                };
+                // Maximizar ventana
+                window.classList.add('maximized');
+                // Cambiar icono del botón
+                const maximizeBtn = window.querySelector('.window-controls .window-control:nth-child(2)');
+                maximizeBtn.textContent = '❐';
+            }
+            
+            bringToFront(window);
+        }
+
+        function bringToFront(window) {
+            const windows = document.querySelectorAll('.window');
+            windows.forEach(w => w.classList.remove('active'));
+            window.classList.add('active');
+        }
+
+        // Actualizar barra de tareas
+        function updateTaskbar() {
+            const taskbarButtons = document.getElementById('taskbarButtons');
+            taskbarButtons.innerHTML = '';
+            
+            const windowTitles = {
+                'portfolio': '🎨 Portfolio',
+                'about': '👩‍🎨 Sobre Mí',
+                'gallery': '🖼️ Galería',
+                'contact': '📧 Contacto',
+                'paint': '🎨 Paint',
+                'notepad': '📝 Bloc de notas',
+                'calculator': '🧮 Calculadora',
+                'explorer': '📁 Explorador',
+                'mediaplayer': '🎵 Reproductor',
+                'sales': '💰 Ventas'
+            };
+            
+            // Mostrar botones para ventanas abiertas
+            document.querySelectorAll('.window').forEach(window => {
+                const windowId = window.id;
+                if (window.style.display === 'block' || minimizedWindows.has(windowId)) {
+                    const button = document.createElement('div');
+                    button.className = 'taskbar-button';
+                    button.textContent = windowTitles[windowId] || windowId;
+                    button.style.display = 'block';
+                    
+                    if (minimizedWindows.has(windowId)) {
+                        button.classList.remove('active');
+                    } else if (window.classList.contains('active')) {
+                        button.classList.add('active');
+                    }
+                    
+                    button.onclick = () => {
+                        if (minimizedWindows.has(windowId)) {
+                            restoreWindow(windowId);
+                        } else {
+                            bringToFront(window);
+                        }
+                    };
+                    
+                    taskbarButtons.appendChild(button);
+                }
+            });
+        }
+
+        // Funciones especiales para el selector de fondos
+        function minimizeWallpaperSelector() {
+            document.getElementById('wallpaperSelector').style.display = 'none';
+        }
+
+        function maximizeWallpaperSelector() {
+            const selector = document.getElementById('wallpaperSelector');
+            if (selector.style.width === '100%') {
+                selector.style.width = '';
+                selector.style.height = '';
+                selector.style.top = '50%';
+                selector.style.left = '50%';
+                selector.style.transform = 'translate(-50%, -50%)';
+            } else {
+                selector.style.width = '100%';
+                selector.style.height = '100%';
+                selector.style.top = '0';
+                selector.style.left = '0';
+                selector.style.transform = 'none';
+            }
+        }
+
+        // Selector de fondos
+        function openWallpaperSelector() {
+            document.getElementById('wallpaperSelector').style.display = 'block';
+            document.querySelectorAll('.wallpaper-option').forEach(option => {
+                option.classList.remove('selected');
+                if (option.dataset.bg === currentWallpaper) {
+                    option.classList.add('selected');
+                }
+            });
+        }
+
+        function closeWallpaperSelector() {
+            document.getElementById('wallpaperSelector').style.display = 'none';
+        }
+
+        function selectWallpaper(wallpaper) {
+            selectedWallpaper = wallpaper;
+            document.querySelectorAll('.wallpaper-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.querySelector(`[data-bg="${wallpaper}"]`).classList.add('selected');
+        }
+
+        function applyWallpaper() {
+            document.body.className = `bg-${selectedWallpaper}`;
+            currentWallpaper = selectedWallpaper;
+            localStorage.setItem('xp-wallpaper', selectedWallpaper);
+            closeWallpaperSelector();
+        }
+
+        // Cargar fondo guardado
+        window.addEventListener('load', function() {
+            const savedWallpaper = localStorage.getItem('xp-wallpaper');
+            if (savedWallpaper) {
+                currentWallpaper = savedWallpaper;
+                selectedWallpaper = savedWallpaper;
+                document.body.className = `bg-${savedWallpaper}`;
+            }
+        });
+
+        // Hacer ventanas arrastrables
+        let isDragging = false;
+        let currentWindow = null;
+        let offset = { x: 0, y: 0 };
+
+        document.addEventListener('mousedown', function(e) {
+            if (e.target.classList.contains('title-bar')) {
+                isDragging = true;
+                currentWindow = e.target.parentElement;
+                bringToFront(currentWindow);
+                
+                const rect = currentWindow.getBoundingClientRect();
+                offset.x = e.clientX - rect.left;
+                offset.y = e.clientY - rect.top;
+            }
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging && currentWindow) {
+                currentWindow.style.left = (e.clientX - offset.x) + 'px';
+                currentWindow.style.top = (e.clientY - offset.y) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+            currentWindow = null;
+        });
+
+        // Cerrar ventana con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeWallpaperSelector();
+            }
+        });
+
+        // Sistema de notificaciones
+        function showNotification(title, message, duration = 4000) {
+            const notification = document.getElementById('notification');
+            const titleEl = document.getElementById('notificationTitle');
+            const messageEl = document.getElementById('notificationMessage');
+            
+            titleEl.textContent = title;
+            messageEl.textContent = message;
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, duration);
+        }
+
+        // Formulario de contacto
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                phone: document.getElementById('contactPhone').value,
+                service: document.getElementById('contactService').value,
+                budget: document.getElementById('contactBudget').value,
+                message: document.getElementById('contactMessage').value,
+                newsletter: document.getElementById('contactNewsletter').checked
+            };
+            
+            // Simular envío del formulario
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '📤 Enviando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Mostrar notificación de éxito
+                showNotification(
+                    '✅ Mensaje Enviado',
+                    `¡Gracias ${formData.name}! Tu mensaje ha sido enviado correctamente. Te contactaré pronto.`
+                );
+                
+                // Limpiar formulario
+                clearContactForm();
+            }, 2000);
+        }
+
+        function clearContactForm() {
+            document.getElementById('contactForm').reset();
+        }
+
+        // Funcionalidad Paint
+        let isDrawing = false;
+        let canvas, ctx;
+
+        window.addEventListener('load', function() {
+            canvas = document.getElementById('paintCanvas');
+            if (canvas) {
+                ctx = canvas.getContext('2d');
+                
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', draw);
+                canvas.addEventListener('mouseup', stopDrawing);
+                canvas.addEventListener('mouseout', stopDrawing);
+
+                document.getElementById('brushSize').addEventListener('input', function() {
+                    document.getElementById('sizeDisplay').textContent = this.value;
+                });
+            }
+        });
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const rect = canvas.getBoundingClientRect();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const color = document.getElementById('colorPicker').value;
+            const size = document.getElementById('brushSize').value;
+            
+            ctx.lineWidth = size;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = color;
+            
+            ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            ctx.beginPath();
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Funcionalidad Bloc de Notas
+        function saveNote() {
+            const text = document.getElementById('notepadText').value;
+            const blob = new Blob([text], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'nota.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function clearNote() {
+            document.getElementById('notepadText').value = '';
+        }
+
+        // Funcionalidad Calculadora
+        let calcCurrentInput = '0';
+        let calcOperator = null;
+        let calcPreviousInput = null;
+        let calcWaitingForOperand = false;
+
+        function updateCalcDisplay() {
+            document.getElementById('calcDisplay').textContent = calcCurrentInput;
+        }
+
+        function calcNumber(num) {
+            if (calcWaitingForOperand) {
+                calcCurrentInput = num;
+                calcWaitingForOperand = false;
+            } else {
+                calcCurrentInput = calcCurrentInput === '0' ? num : calcCurrentInput + num;
+            }
+            updateCalcDisplay();
+        }
+
+        function calcOperation(nextOperator) {
+            const inputValue = parseFloat(calcCurrentInput);
+
+            if (calcPreviousInput === null) {
+                calcPreviousInput = inputValue;
+            } else if (calcOperator) {
+                const currentValue = calcPreviousInput || 0;
+                const newValue = calculate(currentValue, inputValue, calcOperator);
+
+                calcCurrentInput = String(newValue);
+                calcPreviousInput = newValue;
+                updateCalcDisplay();
+            }
+
+            calcWaitingForOperand = true;
+            calcOperator = nextOperator;
+        }
+
+        function calcEquals() {
+            const inputValue = parseFloat(calcCurrentInput);
+
+            if (calcPreviousInput !== null && calcOperator) {
+                const newValue = calculate(calcPreviousInput, inputValue, calcOperator);
+                calcCurrentInput = String(newValue);
+                calcPreviousInput = null;
+                calcOperator = null;
+                calcWaitingForOperand = true;
+                updateCalcDisplay();
+            }
+        }
+
+        function calculate(firstOperand, secondOperand, operator) {
+            switch (operator) {
+                case '+': return firstOperand + secondOperand;
+                case '-': return firstOperand - secondOperand;
+                case '*': return firstOperand * secondOperand;
+                case '/': return firstOperand / secondOperand;
+                default: return secondOperand;
+            }
+        }
+
+        function clearCalc() {
+            calcCurrentInput = '0';
+            calcPreviousInput = null;
+            calcOperator = null;
+            calcWaitingForOperand = false;
+            updateCalcDisplay();
+        }
+
+        // Funcionalidad Explorador
+        function loadFolder(folderName) {
+            const fileList = document.getElementById('fileList');
+            
+            const folders = {
+                portfolio: `
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">🖼️</div>
+                        <div style="font-size: 10px;">retrato.jpg</div>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">🎨</div>
+                        <div style="font-size: 10px;">abstracto.png</div>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">📄</div>
+                        <div style="font-size: 10px;">descripcion.txt</div>
+                    </div>
+                `,
+                proyectos: `
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">📁</div>
+                        <div style="font-size: 10px;">Proyecto1</div>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">📁</div>
+                        <div style="font-size: 10px;">Proyecto2</div>
+                    </div>
+                `,
+                imagenes: `
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">🖼️</div>
+                        <div style="font-size: 10px;">foto1.jpg</div>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">🖼️</div>
+                        <div style="font-size: 10px;">foto2.jpg</div>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;">
+                        <div style="font-size: 32px;">🖼️</div>
+                        <div style="font-size: 10px;">foto3.jpg</div>
+                    </div>
+                `
+            };
+            
+            fileList.innerHTML = folders[folderName] || folders.portfolio;
+        }
+
+        // Funcionalidad Sistema de Paquetes
+        let packagesData = [
+            {
+                name: 'Paquete Básico',
+                price: 299,
+                description: 'Retrato digital simple con 1 revisión',
+                deliveryTime: '5-7 días',
+                includes: ['Retrato digital simple', '1 revisión incluida', 'Formato digital HD', 'Entrega en 5-7 días']
+            },
+            {
+                name: 'Paquete Estándar',
+                price: 599,
+                description: 'Retrato detallado con fondo y múltiples revisiones',
+                deliveryTime: '7-10 días',
+                includes: ['Retrato detallado con fondo', '3 revisiones incluidas', 'Formato digital HD + impresión', 'Boceto preliminar', 'Entrega en 7-10 días']
+            },
+            {
+                name: 'Paquete Premium',
+                price: 999,
+                description: 'Obra completa personalizada con revisiones ilimitadas',
+                deliveryTime: '10-14 días',
+                includes: ['Obra completa personalizada', 'Revisiones ilimitadas', 'Múltiples formatos', 'Proceso documentado', 'Marco incluido', 'Entrega en 10-14 días']
+            },
+            {
+                name: 'Paquete Corporativo',
+                price: 1899,
+                description: 'Logo e identidad visual completa para empresas',
+                deliveryTime: '14-21 días',
+                includes: ['Logo + identidad visual', '5 propuestas iniciales', 'Manual de marca', 'Archivos vectoriales', 'Soporte post-entrega', 'Entrega en 14-21 días']
+            },
+            {
+                name: 'Ilustración Digital',
+                price: 449,
+                description: 'Ilustración personalizada estilo cartoon/anime',
+                deliveryTime: '6-8 días',
+                includes: ['Ilustración personalizada', 'Estilo cartoon/anime', '2 revisiones incluidas', 'Alta resolución', 'Proceso paso a paso', 'Entrega en 6-8 días']
+            },
+            {
+                name: 'Paquete Personalizado',
+                price: 0,
+                description: 'Proyecto único con consulta personalizada',
+                deliveryTime: 'Variable',
+                includes: ['Proyecto único', 'Consulta personalizada', 'Presupuesto a medida', 'Términos flexibles', 'Asesoría completa', 'Tiempo según proyecto']
+            }
+        ];
+
+        function selectPackage(packageType) {
+            const packageInfo = {
+                'básico': 'Has seleccionado el Paquete Básico ($299). ¡Perfecto para retratos simples!',
+                'estándar': 'Has seleccionado el Paquete Estándar ($599). ¡La opción más popular!',
+                'premium': 'Has seleccionado el Paquete Premium ($999). ¡La experiencia completa!',
+                'corporativo': 'Has seleccionado el Paquete Corporativo ($1,899). ¡Ideal para empresas!',
+                'ilustración': 'Has seleccionado Ilustración Digital ($449). ¡Perfecto para personajes!',
+                'personalizado': 'Has seleccionado el Paquete Personalizado. Te contactaremos para cotizar tu proyecto único.'
+            };
+
+            const message = packageInfo[packageType] || 'Paquete seleccionado correctamente.';
+            showNotification('🎨 Paquete Seleccionado', message);
+        }
+
+        function addNewPackage() {
+            const name = prompt('Nombre del paquete:');
+            if (!name) return;
+            
+            const price = parseFloat(prompt('Precio del paquete ($):'));
+            if (!price || price < 0) return;
+            
+            const description = prompt('Descripción breve:');
+            if (!description) return;
+            
+            const deliveryTime = prompt('Tiempo de entrega:', '7-10 días');
+            if (!deliveryTime) return;
+            
+            const includesStr = prompt('¿Qué incluye? (separado por comas):');
+            if (!includesStr) return;
+            
+            const includes = includesStr.split(',').map(item => item.trim());
+            
+            packagesData.push({
+                name,
+                price,
+                description,
+                deliveryTime,
+                includes
+            });
+            
+            showNotification('✅ Paquete Agregado', '¡Nuevo paquete agregado exitosamente!');
+        }
+
+        function exportPackages() {
+            let csvContent = 'Nombre,Precio,Descripción,Tiempo de Entrega,Incluye\n';
+            
+            packagesData.forEach(pkg => {
+                const includesText = pkg.includes.join('; ');
+                const priceText = pkg.price === 0 ? 'A Cotizar' : `$${pkg.price}`;
+                csvContent += `"${pkg.name}","${priceText}","${pkg.description}","${pkg.deliveryTime}","${includesText}"\n`;
+            });
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'paquetes_arte.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            showNotification('💾 Exportación Completa', 'Lista de paquetes exportada como CSV');
+        }
+
+        // Funcionalidad Galería - Filtros por categoría
+        function showCategory(category) {
+            const artPieces = document.querySelectorAll('.art-piece');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            // Actualizar botones
+            categoryButtons.forEach(btn => {
+                btn.style.background = '#ece9d8';
+                btn.style.color = 'black';
+                btn.style.border = '1px outset #ece9d8';
+            });
+            
+            const activeBtn = document.getElementById(`btn-${category}`);
+            if (activeBtn) {
+                activeBtn.style.background = '#0054e3';
+                activeBtn.style.color = 'white';
+                activeBtn.style.border = '1px outset #0054e3';
+            }
+            
+            // Mostrar/ocultar obras
+            artPieces.forEach(piece => {
+                if (category === 'all' || piece.dataset.category === category) {
+                    piece.style.display = 'block';
+                } else {
+                    piece.style.display = 'none';
+                }
+            });
+        }
+
+        // Funcionalidad Reproductor
+        let isPlaying = false;
+        let currentTrack = 0;
+        let progressInterval;
+
+        const tracks = [
+            'Música Inspiradora para Artistas',
+            'Sonidos de la Creatividad',
+            'Melodías para Pintar',
+            'Ritmos Abstractos'
+        ];
+
+        function playPause() {
+            const playBtn = document.getElementById('playBtn');
+            const progressBar = document.getElementById('progressBar');
+            
+            if (isPlaying) {
+                playBtn.textContent = '▶️ Play';
+                clearInterval(progressInterval);
+                isPlaying = false;
+            } else {
+                playBtn.textContent = '⏸️ Pause';
+                startProgress();
+                isPlaying = true;
+            }
+        }
+
+        function stopMusic() {
+            const playBtn = document.getElementById('playBtn');
+            const progressBar = document.getElementById('progressBar');
+            
+            playBtn.textContent = '▶️ Play';
+            progressBar.style.width = '0%';
+            clearInterval(progressInterval);
+            isPlaying = false;
+        }
+
+        function nextTrack() {
+            currentTrack = (currentTrack + 1) % tracks.length;
+            document.querySelector('#mediaplayer .window-content div:nth-child(2) div:first-child').textContent = tracks[currentTrack];
+            
+            if (isPlaying) {
+                stopMusic();
+                setTimeout(playPause, 100);
+            }
+        }
+
+        function startProgress() {
+            let progress = 0;
+            const progressBar = document.getElementById('progressBar');
+            
+            progressInterval = setInterval(() => {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    nextTrack();
+                    if (isPlaying) {
+                        progress = 0;
+                    }
+                }
+            }, 100);
+        }
+    </script>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972f8ff527553798',t:'MTc1NTgzNjI2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
