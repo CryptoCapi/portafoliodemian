@@ -518,6 +518,28 @@
     </div>
   </div>
 
+  <!-- Ventana Vista Previa -->
+  <div id="preview" class="window" style="display:none; top: 90px; left: 120px; width: 640px; height: 520px;">
+    <div class="title-bar">
+      <span>🖼️ Vista Previa — <span id="previewTitle">Escultura</span></span>
+      <div class="window-controls">
+        <div class="window-control" onclick="minimizeWindow('preview')">_</div>
+        <div class="window-control" onclick="maximizeWindow('preview')">□</div>
+        <div class="window-control" onclick="closeWindow('preview')">×</div>
+      </div>
+    </div>
+    <div class="window-content" style="display:flex;flex-direction:column;gap:8px;">
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;background:#fff;border:1px inset #c0c0c0;">
+        <img id="previewImg" src="" alt="" style="max-width:100%;max-height:100%;object-fit:contain;">
+      </div>
+      <div style="display:flex;gap:8px;justify-content:flex-end;">
+        <a id="previewDrive" href="#" target="_blank" rel="noopener" style="display:none;">Drive</a>
+        <button class="form-button" onclick="window.open(document.getElementById('previewDrive').href,'_blank')">🔗 Ver en Drive</button>
+        <button class="form-button primary" onclick="closeWindow('preview')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Ventana Contacto -->
   <div id="contact" class="window" style="top: 200px; left: 400px; width: 500px; height: 550px;">
     <div class="title-bar">
@@ -969,4 +991,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
