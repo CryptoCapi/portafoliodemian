@@ -700,4 +700,69 @@ function showPreview(imgSrc, title, driveUrl) {
       document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}
     }
   }
+  // === Música de fondo ===
+const audio = document.getElementById('bgAudio');
+const playBtn = document.getElementById('playBtn');
+const progressBar = document.getElementById('progressBar');
+
+// Volumen inicial
+if (audio) audio.volume = 0.35;
+
+// Autoplay tras la primera interacción (por política de los navegadores)
+let started = false;
+document.addEventListener('click', () => {
+  if (started || !audio) return;
+  started = true;
+  audio.play().then(() => {
+    if (playBtn) playBtn.textContent = '⏸️ Pause';
+  }).catch(console.warn);
+}, { once: true });
+
+// Controles usados por tu reproductor de la ventana "mediaplayer"
+window.playPause = function () {
+  if (!audio) return;
+  if (audio.paused) {
+    audio.play();
+    if (playBtn) playBtn.textContent = '⏸️ Pause';
+  } else {
+    audio.pause();
+    if (playBtn) playBtn.textContent = '▶️ Play';
+  }
+};
+
+window.stopMusic = function () {
+  if (!audio) return;
+  audio.pause();
+  audio.currentTime = 0;
+  if (playBtn) playBtn.textContent = '▶️ Play';
+  updateProgressUI();
+};
+
+// Si más adelante tienes varias canciones, aquí rotas el índice.
+// Por ahora, con una sola pista, "Siguiente" reinicia.
+window.nextTrack = function () {
+  if (!audio) return;
+  audio.currentTime = 0;
+  audio.play();
+  if (playBtn) playBtn.textContent = '⏸️ Pause';
+};
+
+// Barra de progreso
+function updateProgressUI() {
+  if (!audio || !progressBar || !audio.duration) {
+    if (progressBar) progressBar.style.width = '0%';
+    return;
+  }
+  const pct = (audio.currentTime / audio.duration) * 100;
+  progressBar.style.width = pct + '%';
+}
+
+if (audio) {
+  audio.addEventListener('timeupdate', updateProgressUI);
+  audio.addEventListener('loadedmetadata', updateProgressUI);
+  audio.addEventListener('ended', () => {
+    if (playBtn) playBtn.textContent = '▶️ Play';
+  });
+}
+
 })();
