@@ -13,71 +13,48 @@
 </head>
 <body class="bg-principal">
   <div class="desktop">
-    <!-- ...tu contenido actual (todas las ventanas, etc.) ... -->
-  </div>
-
-  <!-- Música de fondo (invisible porque no tiene controls) -->
-  <audio id="bgAudio" src="./WorldFrutti.mp3" preload="auto" loop></audio>
-
-  <!-- JS propio -->
-  <script src="script.js"></script>
-</body>
-</html>
-
-<body class="bg-principal">
-  <div class="desktop">
     <!-- Iconos del escritorio -->
     <div class="desktop-icons">
       <div class="desktop-icon" ondblclick="openWindow('portfolio')">
         <div class="icon-image">🎨</div>
         <div class="icon-label">Demian (@dmxn_08)</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('about')">
         <div class="icon-image">👩‍🎨</div>
         <div class="icon-label">Sobre Mí</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('gallery')">
         <div class="icon-image">🖼️</div>
         <div class="icon-label">Galería</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('contact')">
         <div class="icon-image">📧</div>
         <div class="icon-label">Contacto</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('paint')">
         <div class="icon-image">🎨</div>
         <div class="icon-label">Paint</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('notepad')">
         <div class="icon-image">📝</div>
         <div class="icon-label">Bloc de Notas</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('calculator')">
         <div class="icon-image">🧮</div>
         <div class="icon-label">Calculadora</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('explorer')">
         <div class="icon-image">📁</div>
         <div class="icon-label">Explorador</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('mediaplayer')">
         <div class="icon-image">🎵</div>
         <div class="icon-label">Reproductor</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWindow('sales')">
         <div class="icon-image">💰</div>
         <div class="icon-label">Ventas</div>
       </div>
-      
       <div class="desktop-icon" ondblclick="openWallpaperSelector()">
         <div class="icon-image">🌈</div>
         <div class="icon-label">Cambiar Fondo</div>
@@ -91,11 +68,7 @@
         <span style="display: none;">🪟</span>
         <span>Inicio</span>
       </button>
-      
-      <div class="taskbar-buttons" id="taskbarButtons">
-        <!-- Botones de ventanas -->
-      </div>
-      
+      <div class="taskbar-buttons" id="taskbarButtons"><!-- Botones de ventanas --></div>
       <div class="taskbar-time" id="clock">12:00 PM</div>
     </div>
   </div>
@@ -113,7 +86,6 @@
     <div class="window-content">
       <h2 style="margin-top: 0; color: #0054e3;">Demian Tenorio Rico (@dmxn_08)</h2>
       <h3 style="color: #666; margin-top: -8px;">Artista Visual Transgénero - Guanajuato</h3>
-      
       <div style="background: #f0f0f0; padding: 12px; border: 1px inset #ece9d8; margin: 16px 0;">
         <h4 style="margin-top: 0; color: #0054e3;">Semblanza</h4>
         <p style="font-size: 12px; line-height: 1.5; text-align: justify;">
@@ -126,7 +98,6 @@
           Con estas técnicas exploro temas y eventos de la cultura pop para invitar al pensamiento de la sátira y descontextualización.
         </p>
       </div>
-      
       <h3>Técnicas y Especialidades:</h3>
       <ul>
         <li>🎨 Dibujo (principalmente con colores)</li>
@@ -152,15 +123,8 @@
     <div class="window-content">
       <h2 style="margin-top: 0; color: #0054e3;">Sobre Demian Tenorio Rico</h2>
       <p>Artista transgénero y guanajuatense, conocido en Internet como @dmxn_08. Estudiante de la Licenciatura de Artes Visuales en la Universidad de Guanajuato desde 2023.</p>
-      
       <h3>Enfoque Artístico:</h3>
-      <p>🎨 Dibujo con Colores<br>
-      🗿 Escultura y Arte Objeto<br>
-      💎 Bisutería Artística<br>
-      💻 Dibujo Digital<br>
-      🎭 Sátira y Descontextualización<br>
-      🌐 Cultura Pop</p>
-      
+      <p>🎨 Dibujo con Colores<br>🗿 Escultura y Arte Objeto<br>💎 Bisutería Artística<br>💻 Dibujo Digital<br>🎭 Sátira y Descontextualización<br>🌐 Cultura Pop</p>
       <h3>Propósito Artístico:</h3>
       <p>Mi obra busca crear un espacio divertido y contrastante con lo real e irreal. Exploro temas y eventos de la cultura pop para invitar al pensamiento de la sátira y descontextualización, generando espacios donde lo cotidiano se transforma en algo extraordinario y reflexivo.</p>
     </div>
@@ -178,7 +142,7 @@
     </div>
     <div class="window-content">
       <h2 style="margin-top: 0; color: #0054e3;">Galería de Arte - Demian Tenorio Rico</h2>
-      
+
       <!-- Navegación por categorías -->
       <div style="background: #f0f0f0; padding: 8px; border: 1px inset #ece9d8; margin-bottom: 16px; display: flex; flex-wrap: wrap; gap: 4px;">
         <button onclick="showCategory('all')" id="btn-all" class="category-btn active" style="padding: 4px 8px; font-size: 10px; background: #0054e3; color: white; border: 1px outset #0054e3; cursor: pointer;">Todas</button>
@@ -190,73 +154,65 @@
         <button onclick="showCategory('collage')" id="btn-collage" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">📄 Collage</button>
         <button onclick="showCategory('bisuteria')" id="btn-bisuteria" class="category-btn" style="padding: 4px 8px; font-size: 10px; background: #ece9d8; border: 1px outset #ece9d8; cursor: pointer;">💎 Bisutería</button>
       </div>
-      
+
       <!-- Galería de obras -->
       <div class="art-gallery" id="artGallery">
         <!-- TAROT -->
-        <!-- La Templanza -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_dc36263999cd4e559a8f157ff1326cbb~mv2.jpg/v1/fill/w_341,h_472,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_dc36263999cd4e559a8f157ff1326cbb~mv2.jpg" alt="La Templanza - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Templanza</div>
-  <div style="font-size: 11px; font-weight: bold;">La Templanza</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_dc36263999cd4e559a8f157ff1326cbb~mv2.jpg/v1/fill/w_341,h_472,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_dc36263999cd4e559a8f157ff1326cbb~mv2.jpg" alt="La Templanza - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Templanza</div>
+          <div style="font-size: 11px; font-weight: bold;">La Templanza</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- El Colgado -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_0f013ca8018441ba99d3e35007b239b6~mv2.jpg/v1/fill/w_341,h_496,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_0f013ca8018441ba99d3e35007b239b6~mv2.jpg" alt="El Colgado - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Colgado</div>
-  <div style="font-size: 11px; font-weight: bold;">El Colgado</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_0f013ca8018441ba99d3e35007b239b6~mv2.jpg/v1/fill/w_341,h_496,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_0f013ca8018441ba99d3e35007b239b6~mv2.jpg" alt="El Colgado - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Colgado</div>
+          <div style="font-size: 11px; font-weight: bold;">El Colgado</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- La Muerte -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_eaebd31828934572bf77c4d0ed3a2561~mv2.jpg/v1/fill/w_341,h_459,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_eaebd31828934572bf77c4d0ed3a2561~mv2.jpg" alt="La Muerte - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Muerte</div>
-  <div style="font-size: 11px; font-weight: bold;">La Muerte</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_eaebd31828934572bf77c4d0ed3a2561~mv2.jpg/v1/fill/w_341,h_459,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_eaebd31828934572bf77c4d0ed3a2561~mv2.jpg" alt="La Muerte - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Muerte</div>
+          <div style="font-size: 11px; font-weight: bold;">La Muerte</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- La Torre -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_57b299512c1b4302a546bad9b460712e~mv2.jpg/v1/fill/w_341,h_492,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_57b299512c1b4302a546bad9b460712e~mv2.jpg" alt="La Torre - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Torre</div>
-  <div style="font-size: 11px; font-weight: bold;">La Torre</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_57b299512c1b4302a546bad9b460712e~mv2.jpg/v1/fill/w_341,h_492,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_57b299512c1b4302a546bad9b460712e~mv2.jpg" alt="La Torre - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Torre</div>
+          <div style="font-size: 11px; font-weight: bold;">La Torre</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- El Diablo -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_e2f9404d770947d79919e375056ba032~mv2.jpg/v1/fill/w_341,h_472,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_e2f9404d770947d79919e375056ba032~mv2.jpg" alt="El Diablo - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Diablo</div>
-  <div style="font-size: 11px; font-weight: bold;">El Diablo</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_e2f9404d770947d79919e375056ba032~mv2.jpg/v1/fill/w_341,h_472,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_e2f9404d770947d79919e375056ba032~mv2.jpg" alt="El Diablo - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Diablo</div>
+          <div style="font-size: 11px; font-weight: bold;">El Diablo</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- El Juicio -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_dca455e125374bc5bf978850bb705090~mv2.jpg/v1/fill/w_341,h_483,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_dca455e125374bc5bf978850bb705090~mv2.jpg" alt="El Juicio - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Juicio</div>
-  <div style="font-size: 11px; font-weight: bold;">El Juicio</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_dca455e125374bc5bf978850bb705090~mv2.jpg/v1/fill/w_341,h_483,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_dca455e125374bc5bf978850bb705090~mv2.jpg" alt="El Juicio - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Juicio</div>
+          <div style="font-size: 11px; font-weight: bold;">El Juicio</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- El Sol -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_65799d9e26954d4fae152fda693e7b5e~mv2.jpg/v1/fill/w_341,h_480,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_65799d9e26954d4fae152fda693e7b5e~mv2.jpg" alt="El Sol - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Sol</div>
-  <div style="font-size: 11px; font-weight: bold;">El Sol</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_65799d9e26954d4fae152fda693e7b5e~mv2.jpg/v1/fill/w_341,h_480,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_65799d9e26954d4fae152fda693e7b5e~mv2.jpg" alt="El Sol - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 El Sol</div>
+          <div style="font-size: 11px; font-weight: bold;">El Sol</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
+        </div>
 
-<!-- La Luna -->
-<div class="art-piece" data-category="tarot">
-  <img src="https://static.wixstatic.com/media/fad2d0_e9189fcbb49044758684cc1c4c1affc2~mv2.jpg/v1/fill/w_341,h_494,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_e9189fcbb49044758684cc1c4c1affc2~mv2.jpg" alt="La Luna - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-  <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Luna</div>
-  <div style="font-size: 11px; font-weight: bold;">La Luna</div>
-  <div style="font-size: 9px; color: #666;">Tarot • 2023</div>
-</div>
+        <div class="art-piece" data-category="tarot">
+          <img src="https://static.wixstatic.com/media/fad2d0_e9189fcbb49044758684cc1c4c1affc2~mv2.jpg/v1/fill/w_341,h_494,al_c,q_80,usm_0.66_1.00_0.01/fad2d0_e9189fcbb49044758684cc1c4c1affc2~mv2.jpg" alt="La Luna - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="art-placeholder" style="background: linear-gradient(45deg, #8e44ad, #3498db); display: none;">🔮 La Luna</div>
+          <div style="font-size: 11px; font-weight: bold;">La Luna</div>
+          <div style="font-size: 9px; color: #666;">Tarot • 2023</div>
+        </div>
 
         <div class="art-piece" data-category="tarot">
           <img src="https://static.wixstatic.com/media/fad2d0_8ae098bcabcc4eb4bace872d61f30ee9~mv2.jpg/v1/fill/w_470,h_702,al_c,lg_1,q_80,enc_avif,quality_auto/fad2d0_8ae098bcabcc4eb4bace872d61f30ee9~mv2.jpg" alt="La Justicia - Tarot" style="width: 100%; height: 120px; object-fit: cover; border: 1px solid #999; margin-bottom: 4px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -356,6 +312,7 @@
           <div style="font-size: 9px; color: #666;">Tarot • 2024</div>
         </div>
 
+        <!-- Extra (placeholder repetido de La Luna, si no lo quieres, elimínalo) -->
         <div class="art-piece" data-category="tarot">
           <div class="art-placeholder" style="background: linear-gradient(45deg, #2c3e50, #f39c12);">🌙 La Luna</div>
           <div style="font-size: 11px; font-weight: bold;">La Luna</div>
@@ -401,106 +358,97 @@
           <div style="font-size: 9px; color: #666;">Dibujo Digital • 2023</div>
         </div>
 
-        <!-- ESCULTURA -->
-    <!-- Escultura 01 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=1-RDcmfxW0Gc_4oWhTDqFNvY4Y7-VXT2v','Escultura 01','https://drive.google.com/file/d/1-RDcmfxW0Gc_4oWhTDqFNvY4Y7-VXT2v/view?usp=sharing')"
-     title="Escultura 01 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=1-RDcmfxW0Gc_4oWhTDqFNvY4Y7-VXT2v"
-       alt="Escultura 01" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 01</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
+        <!-- ESCULTURA (con vista previa) -->
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=1-RDcmfxW0Gc_4oWhTDqFNvY4Y7-VXT2v','Escultura 01','https://drive.google.com/file/d/1-RDcmfxW0Gc_4oWhTDqFNvY4Y7-VXT2v/view?usp=sharing')"
+             title="Escultura 01 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=1-RDcmfxW0Gc_4oWhTDqFNvY4Y7-VXT2v"
+               alt="Escultura 01" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 01</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
-<!-- Escultura 02 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=14tcJsMPs_HfrxtbZTWc3uoxio-RBMw9M','Escultura 02','https://drive.google.com/file/d/14tcJsMPs_HfrxtbZTWc3uoxio-RBMw9M/view?usp=sharing')"
-     title="Escultura 02 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=14tcJsMPs_HfrxtbZTWc3uoxio-RBMw9M"
-       alt="Escultura 02" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 02</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=14tcJsMPs_HfrxtbZTWc3uoxio-RBMw9M','Escultura 02','https://drive.google.com/file/d/14tcJsMPs_HfrxtbZTWc3uoxio-RBMw9M/view?usp=sharing')"
+             title="Escultura 02 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=14tcJsMPs_HfrxtbZTWc3uoxio-RBMw9M"
+               alt="Escultura 02" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 02</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
-<!-- Escultura 03 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=1SaNxSpctV1YpYCNq7laguzbk8fJ3Ngg1','Escultura 03','https://drive.google.com/file/d/1SaNxSpctV1YpYCNq7laguzbk8fJ3Ngg1/view?usp=sharing')"
-     title="Escultura 03 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=1SaNxSpctV1YpYCNq7laguzbk8fJ3Ngg1"
-       alt="Escultura 03" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 03</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=1SaNxSpctV1YpYCNq7laguzbk8fJ3Ngg1','Escultura 03','https://drive.google.com/file/d/1SaNxSpctV1YpYCNq7laguzbk8fJ3Ngg1/view?usp=sharing')"
+             title="Escultura 03 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=1SaNxSpctV1YpYCNq7laguzbk8fJ3Ngg1"
+               alt="Escultura 03" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 03</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
-<!-- Escultura 04 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=1WZxQR80Ci8B2LrLrGOu1q_vxs19QqorD','Escultura 04','https://drive.google.com/file/d/1WZxQR80Ci8B2LrLrGOu1q_vxs19QqorD/view?usp=sharing')"
-     title="Escultura 04 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=1WZxQR80Ci8B2LrLrGOu1q_vxs19QqorD"
-       alt="Escultura 04" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 04</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=1WZxQR80Ci8B2LrLrGOu1q_vxs19QqorD','Escultura 04','https://drive.google.com/file/d/1WZxQR80Ci8B2LrLrGOu1q_vxs19QqorD/view?usp=sharing')"
+             title="Escultura 04 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=1WZxQR80Ci8B2LrLrGOu1q_vxs19QqorD"
+               alt="Escultura 04" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 04</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
-<!-- Escultura 05 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=1fRcHRDAHQyBfHxRDbdeiiG-hNo5LTJ6V','Escultura 05','https://drive.google.com/file/d/1fRcHRDAHQyBfHxRDbdeiiG-hNo5LTJ6V/view?usp=sharing')"
-     title="Escultura 05 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=1fRcHRDAHQyBfHxRDbdeiiG-hNo5LTJ6V"
-       alt="Escultura 05" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 05</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=1fRcHRDAHQyBfHxRDbdeiiG-hNo5LTJ6V','Escultura 05','https://drive.google.com/file/d/1fRcHRDAHQyBfHxRDbdeiiG-hNo5LTJ6V/view?usp=sharing')"
+             title="Escultura 05 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=1fRcHRDAHQyBfHxRDbdeiiG-hNo5LTJ6V"
+               alt="Escultura 05" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 05</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
-<!-- Escultura 06 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=1sMvoo0ca1nZeITnbXA1yZa9YTs55t9Qg','Escultura 06','https://drive.google.com/file/d/1sMvoo0ca1nZeITnbXA1yZa9YTs55t9Qg/view?usp=sharing')"
-     title="Escultura 06 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=1sMvoo0ca1nZeITnbXA1yZa9YTs55t9Qg"
-       alt="Escultura 06" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 06</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=1sMvoo0ca1nZeITnbXA1yZa9YTs55t9Qg','Escultura 06','https://drive.google.com/file/d/1sMvoo0ca1nZeITnbXA1yZa9YTs55t9Qg/view?usp=sharing')"
+             title="Escultura 06 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=1sMvoo0ca1nZeITnbXA1yZa9YTs55t9Qg"
+               alt="Escultura 06" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 06</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
-<!-- Escultura 07 -->
-<div class="art-piece" data-category="escultura"
-     onclick="showPreview('https://drive.google.com/uc?export=view&id=1wfc6UDUqABeEwwH0A2def5tdYkaFbG-q','Escultura 07','https://drive.google.com/file/d/1wfc6UDUqABeEwwH0A2def5tdYkaFbG-q/view?usp=sharing')"
-     title="Escultura 07 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
-     onkeydown="if(event.key==='Enter'){ this.click(); }">
-  <img src="https://drive.google.com/uc?export=view&id=1wfc6UDUqABeEwwH0A2def5tdYkaFbG-q"
-       alt="Escultura 07" loading="lazy"
-       style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
-       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
-  <div style="font-size:11px;font-weight:bold;">Escultura 07</div>
-  <div style="font-size:9px;color:#666;">Escultura • 2024</div>
-</div>
-
-
+        <div class="art-piece" data-category="escultura"
+             onclick="showPreview('https://drive.google.com/uc?export=view&id=1wfc6UDUqABeEwwH0A2def5tdYkaFbG-q','Escultura 07','https://drive.google.com/file/d/1wfc6UDUqABeEwwH0A2def5tdYkaFbG-q/view?usp=sharing')"
+             title="Escultura 07 — Vista previa" style="cursor:pointer;" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'){ this.click(); }">
+          <img src="https://drive.google.com/uc?export=view&id=1wfc6UDUqABeEwwH0A2def5tdYkaFbG-q"
+               alt="Escultura 07" loading="lazy"
+               style="width:100%;height:120px;object-fit:cover;border:1px solid #999;margin-bottom:4px;"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="art-placeholder" style="background:linear-gradient(45deg,#95a5a6,#7f8c8d);display:none;">🗿 Escultura</div>
+          <div style="font-size:11px;font-weight:bold;">Escultura 07</div>
+          <div style="font-size:9px;color:#666;">Escultura • 2024</div>
+        </div>
 
         <!-- COLLAGE -->
         <div class="art-piece" data-category="collage">
@@ -566,7 +514,6 @@
     <div class="window-content">
       <h2 style="margin-top: 0; color: #0054e3;">Contacto - Demian Tenorio Rico</h2>
       <p style="font-size: 12px; margin-bottom: 16px;">¿Buscas arte que explore la cultura pop con sátira y descontextualización? ¡Conectemos para crear espacios divertidos entre lo real e irreal!</p>
-      
       <div style="background: #f0f0f0; padding: 12px; border: 1px inset #ece9d8; margin-bottom: 16px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px;">
           <div><strong>📧 Email:</strong> demian.tenorio@ejemplo.com</div>
@@ -575,23 +522,19 @@
           <div><strong>📍 Ubicación:</strong> Guanajuato, México</div>
         </div>
       </div>
-      
       <form id="contactForm" onsubmit="submitContactForm(event)">
         <div class="form-group">
           <label class="form-label" for="contactName">Nombre completo *</label>
           <input type="text" id="contactName" class="form-input" required placeholder="Tu nombre completo">
         </div>
-        
         <div class="form-group">
           <label class="form-label" for="contactEmail">Correo electrónico *</label>
           <input type="email" id="contactEmail" class="form-input" required placeholder="tu@email.com">
         </div>
-        
         <div class="form-group">
           <label class="form-label" for="contactPhone">Teléfono (opcional)</label>
           <input type="tel" id="contactPhone" class="form-input" placeholder="+52 123 456 7890">
         </div>
-        
         <div class="form-group">
           <label class="form-label" for="contactService">Tipo de servicio</label>
           <select id="contactService" class="form-input">
@@ -605,7 +548,6 @@
             <option value="otro">Otro proyecto</option>
           </select>
         </div>
-        
         <div class="form-group">
           <label class="form-label" for="contactBudget">Presupuesto aproximado</label>
           <select id="contactBudget" class="form-input">
@@ -617,19 +559,16 @@
             <option value="consultar">A consultar</option>
           </select>
         </div>
-        
         <div class="form-group">
           <label class="form-label" for="contactMessage">Describe tu proyecto *</label>
           <textarea id="contactMessage" class="form-textarea" required placeholder="Cuéntame sobre tu idea, estilo preferido, fechas importantes, referencias, etc."></textarea>
         </div>
-        
         <div class="form-group">
           <label style="display: flex; align-items: center; font-size: 11px; gap: 4px;">
             <input type="checkbox" id="contactNewsletter" style="margin: 0;">
             Quiero recibir actualizaciones sobre nuevas obras y proyectos
           </label>
         </div>
-        
         <div style="text-align: center; margin-top: 16px;">
           <button type="submit" class="form-button primary">📧 Enviar Mensaje</button>
           <button type="button" class="form-button" onclick="clearContactForm()">🗑️ Limpiar</button>
@@ -696,22 +635,18 @@
         <button onclick="clearCalc()" style="grid-column: span 2; padding: 8px; font-size: 12px;">C</button>
         <button onclick="calcOperation('/')" style="padding: 8px; font-size: 12px;">÷</button>
         <button onclick="calcOperation('*')" style="padding: 8px; font-size: 12px;">×</button>
-        
         <button onclick="calcNumber('7')" style="padding: 8px; font-size: 12px;">7</button>
         <button onclick="calcNumber('8')" style="padding: 8px; font-size: 12px;">8</button>
         <button onclick="calcNumber('9')" style="padding: 8px; font-size: 12px;">9</button>
         <button onclick="calcOperation('-')" style="padding: 8px; font-size: 12px;">-</button>
-        
         <button onclick="calcNumber('4')" style="padding: 8px; font-size: 12px;">4</button>
         <button onclick="calcNumber('5')" style="padding: 8px; font-size: 12px;">5</button>
         <button onclick="calcNumber('6')" style="padding: 8px; font-size: 12px;">6</button>
         <button onclick="calcOperation('+')" style="padding: 8px; font-size: 12px;">+</button>
-        
         <button onclick="calcNumber('1')" style="padding: 8px; font-size: 12px;">1</button>
         <button onclick="calcNumber('2')" style="padding: 8px; font-size: 12px;">2</button>
         <button onclick="calcNumber('3')" style="padding: 8px; font-size: 12px;">3</button>
         <button onclick="calcEquals()" style="padding: 8px; font-size: 12px; grid-row: span 2; background: #0054e3; color: white;">=</button>
-        
         <button onclick="calcNumber('0')" style="grid-column: span 2; padding: 8px; font-size: 12px;">0</button>
         <button onclick="calcNumber('.')" style="padding: 8px; font-size: 12px;">.</button>
       </div>
@@ -777,14 +712,11 @@
       <div style="background: #c0c0c0; padding: 8px; border-bottom: 1px solid #999; display: flex; align-items: center; gap: 12px;">
         <button onclick="addNewPackage()" style="padding: 4px 12px; font-size: 11px; background: #ece9d8; border: 2px outset #ece9d8;">➕ Nuevo Paquete</button>
         <button onclick="exportPackages()" style="padding: 4px 12px; font-size: 11px; background: #ece9d8; border: 2px outset #ece9d8;">💾 Exportar Lista</button>
-        <div style="margin-left: auto; font-size: 11px; font-weight: bold; color: #0054e3;">
-          📋 Catálogo de Servicios Artísticos
-        </div>
+        <div style="margin-left: auto; font-size: 11px; font-weight: bold; color: #0054e3;">📋 Catálogo de Servicios Artísticos</div>
       </div>
-      
       <div style="height: calc(100% - 50px); overflow-y: auto; padding: 16px;">
         <div id="packagesGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
-          
+
           <!-- Paquete Básico -->
           <div class="package-card" style="border: 2px inset #ece9d8; padding: 16px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);">
             <div style="text-align: center; margin-bottom: 12px;">
@@ -936,18 +868,15 @@
           🎵 Visualización de Audio
         </div>
       </div>
-      
       <div style="text-align: center; margin-bottom: 15px;">
         <div style="font-weight: bold; font-size: 12px;">Música Inspiradora para Artistas</div>
         <div style="font-size: 11px; color: #666;">Playlist Creativa</div>
       </div>
-      
       <div style="text-align: center;">
         <button onclick="playPause()" id="playBtn" style="margin: 0 5px; padding: 5px 10px; font-size: 12px;">▶️ Play</button>
         <button onclick="stopMusic()" style="margin: 0 5px; padding: 5px 10px; font-size: 12px;">⏹️ Stop</button>
         <button onclick="nextTrack()" style="margin: 0 5px; padding: 5px 10px; font-size: 12px;">⏭️ Siguiente</button>
       </div>
-      
       <div style="margin-top: 15px;">
         <div style="background: #c0c0c0; height: 4px; border: 1px inset #999;">
           <div id="progressBar" style="background: #0054e3; height: 100%; width: 0%; transition: width 0.3s;"></div>
@@ -966,28 +895,14 @@
         <div class="window-control" onclick="closeWallpaperSelector()">×</div>
       </div>
     </div>
-    
     <div class="wallpaper-grid">
-      <div class="wallpaper-option bg-principal" data-bg="principal" onclick="selectWallpaper('principal')">
-        <div class="wallpaper-name">Principal</div>
-      </div>
-      <div class="wallpaper-option bg-bliss" data-bg="bliss" onclick="selectWallpaper('bliss')">
-        <div class="wallpaper-name">Bliss XP</div>
-      </div>
-      <div class="wallpaper-option bg-azul" data-bg="azul" onclick="selectWallpaper('azul')">
-        <div class="wallpaper-name">Azul</div>
-      </div>
-      <div class="wallpaper-option bg-energia" data-bg="energia" onclick="selectWallpaper('energia')">
-        <div class="wallpaper-name">Energía</div>
-      </div>
-      <div class="wallpaper-option bg-otono" data-bg="otono" onclick="selectWallpaper('otono')">
-        <div class="wallpaper-name">Otoño</div>
-      </div>
-      <div class="wallpaper-option bg-naturaleza" data-bg="naturaleza" onclick="selectWallpaper('naturaleza')">
-        <div class="wallpaper-name">Naturaleza</div>
-      </div>
+      <div class="wallpaper-option bg-principal" data-bg="principal" onclick="selectWallpaper('principal')"><div class="wallpaper-name">Principal</div></div>
+      <div class="wallpaper-option bg-bliss" data-bg="bliss" onclick="selectWallpaper('bliss')"><div class="wallpaper-name">Bliss XP</div></div>
+      <div class="wallpaper-option bg-azul" data-bg="azul" onclick="selectWallpaper('azul')"><div class="wallpaper-name">Azul</div></div>
+      <div class="wallpaper-option bg-energia" data-bg="energia" onclick="selectWallpaper('energia')"><div class="wallpaper-name">Energía</div></div>
+      <div class="wallpaper-option bg-otono" data-bg="otono" onclick="selectWallpaper('otono')"><div class="wallpaper-name">Otoño</div></div>
+      <div class="wallpaper-option bg-naturaleza" data-bg="naturaleza" onclick="selectWallpaper('naturaleza')"><div class="wallpaper-name">Naturaleza</div></div>
     </div>
-    
     <div style="padding: 8px; text-align: center; border-top: 1px solid #999;">
       <button onclick="applyWallpaper()" style="background: #ece9d8; border: 2px outset #ece9d8; padding: 4px 12px; font-size: 11px; cursor: pointer; margin-right: 8px;">Aplicar</button>
       <button onclick="closeWallpaperSelector()" style="background: #ece9d8; border: 2px outset #ece9d8; padding: 4px 12px; font-size: 11px; cursor: pointer;">Cancelar</button>
@@ -999,6 +914,9 @@
     <div class="notification-title" id="notificationTitle">Mensaje enviado</div>
     <div class="notification-message" id="notificationMessage">Tu mensaje ha sido enviado correctamente.</div>
   </div>
+
+  <!-- Música de fondo (invisible) -->
+  <audio id="bgAudio" src="./WorldFrutti.mp3" preload="auto" loop></audio>
 
   <!-- JS propio -->
   <script src="script.js"></script>
