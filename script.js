@@ -1,8 +1,22 @@
+/* ===========================
+   Windows XP Portfolio - JS
+   (corregido y organizado)
+   =========================== */
+
+'use strict';
+
+/* ==== Estado global ==== */
 let selectedWallpaper = 'principal';
 let currentWallpaper = 'principal';
 let minimizedWindows = new Set();
+let windowStates = {}; // para restaurar pos/size al desmaximizar
+let isDragging = false;
+let currentWindow = null;
+let offset = { x: 0, y: 0 };
 
-// Reloj
+/* =========================
+   Reloj (barra de tareas)
+   ========================= */
 function updateClock() {
   const now = new Date();
   const time = now.toLocaleTimeString('es-ES', {
@@ -10,16 +24,18 @@ function updateClock() {
     minute: '2-digit',
     hour12: false
   });
-  document.getElementById('clock').textContent = time;
+  const el = document.getElementById('clock');
+  if (el) el.textContent = time;
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// Gestión de ventanas
-let windowStates = {};
-
+/* =========================
+   Gestión de ventanas
+   ========================= */
 function openWindow(windowId) {
   const win = document.getElementById(windowId);
+  if (!win) return;
 
   if (minimizedWindows.has(windowId)) {
     restoreWindow(windowId);
@@ -27,50 +43,59 @@ function openWindow(windowId) {
   }
 
   win.style.display = 'block';
-  setTimeout(() => { win.classList.add('show'); }, 10);
+  // permitir animación CSS (si la tienes)
+  requestAnimationFrame(() => win.classList.add('show'));
 
   bringToFront(win);
-  updateTaskbar();
 }
 
 function closeWindow(windowId) {
   const win = document.getElementById(windowId);
+  if (!win) return;
+
   win.classList.remove('show');
   setTimeout(() => {
     win.style.display = 'none';
     minimizedWindows.delete(windowId);
     updateTaskbar();
-  }, 300);
+  }, 250);
 }
 
 function minimizeWindow(windowId) {
   const win = document.getElementById(windowId);
+  if (!win) return;
+
   win.classList.add('minimizing');
   setTimeout(() => {
     win.style.display = 'none';
     win.classList.remove('minimizing', 'show');
     minimizedWindows.add(windowId);
     updateTaskbar();
-  }, 400);
+  }, 300);
 }
 
 function restoreWindow(windowId) {
   const win = document.getElementById(windowId);
+  if (!win) return;
+
   win.style.display = 'block';
   win.classList.add('restoring');
-  setTimeout(() => {
+  requestAnimationFrame(() => {
     win.classList.remove('restoring');
     win.classList.add('show');
     minimizedWindows.delete(windowId);
     bringToFront(win);
-    updateTaskbar();
-  }, 10);
+  });
 }
 
 function maximizeWindow(windowId) {
   const win = document.getElementById(windowId);
+  if (!win) return;
+
+  const maximizeBtn = win.querySelector('.window-controls .window-control:nth-child(2)');
 
   if (win.classList.contains('maximized')) {
+    // restaurar
     win.classList.remove('maximized');
     if (windowStates[windowId]) {
       win.style.top = windowStates[windowId].top;
@@ -78,9 +103,9 @@ function maximizeWindow(windowId) {
       win.style.width = windowStates[windowId].width;
       win.style.height = windowStates[windowId].height;
     }
-    const maximizeBtn = win.querySelector('.window-controls .window-control:nth-child(2)');
-    maximizeBtn.textContent = '□';
+    if (maximizeBtn) maximizeBtn.textContent = '□';
   } else {
+    // guardar estado y maximizar
     windowStates[windowId] = {
       top: win.style.top,
       left: win.style.left,
@@ -88,22 +113,25 @@ function maximizeWindow(windowId) {
       height: win.style.height
     };
     win.classList.add('maximized');
-    const maximizeBtn = win.querySelector('.window-controls .window-control:nth-child(2)');
-    maximizeBtn.textContent = '❐';
+    if (maximizeBtn) maximizeBtn.textContent = '❐';
   }
 
   bringToFront(win);
 }
 
 function bringToFront(win) {
-  const windows = document.querySelectorAll('.window');
-  windows.forEach(w => w.classList.remove('active'));
+  document.querySelectorAll('.window').forEach(w => w.classList.remove('active'));
   win.classList.add('active');
+  updateTaskbar();
 }
 
-// Barra de tareas
+/* =========================
+   Barra de tareas
+   ========================= */
 function updateTaskbar() {
   const taskbarButtons = document.getElementById('taskbarButtons');
+  if (!taskbarButtons) return;
+
   taskbarButtons.innerHTML = '';
 
   const windowTitles = {
@@ -117,17 +145,16 @@ function updateTaskbar() {
     'explorer': '📁 Explorador',
     'mediaplayer': '🎵 Reproductor',
     'sales': '💰 Ventas',
-    // 👇 añadido para que la vista previa salga en la barra
     'preview': '🖼️ Vista Previa'
   };
 
   document.querySelectorAll('.window').forEach(win => {
     const id = win.id;
-    if (win.style.display === 'block' || minimizedWindows.has(id)) {
+    const isVisible = win.style.display === 'block';
+    if (isVisible || minimizedWindows.has(id)) {
       const button = document.createElement('div');
       button.className = 'taskbar-button';
       button.textContent = windowTitles[id] || id;
-      button.style.display = 'block';
 
       if (minimizedWindows.has(id)) {
         button.classList.remove('active');
@@ -136,8 +163,11 @@ function updateTaskbar() {
       }
 
       button.onclick = () => {
-        if (minimizedWindows.has(id)) restoreWindow(id);
-        else bringToFront(win);
+        if (minimizedWindows.has(id)) {
+          restoreWindow(id);
+        } else {
+          bringToFront(win);
+        }
       };
 
       taskbarButtons.appendChild(button);
@@ -145,12 +175,17 @@ function updateTaskbar() {
   });
 }
 
-// Selector de fondos
+/* =========================
+   Selector de fondos
+   ========================= */
 function minimizeWallpaperSelector() {
-  document.getElementById('wallpaperSelector').style.display = 'none';
+  const el = document.getElementById('wallpaperSelector');
+  if (el) el.style.display = 'none';
 }
 function maximizeWallpaperSelector() {
   const selector = document.getElementById('wallpaperSelector');
+  if (!selector) return;
+
   if (selector.style.width === '100%') {
     selector.style.width = '';
     selector.style.height = '';
@@ -167,6 +202,8 @@ function maximizeWallpaperSelector() {
 }
 function openWallpaperSelector() {
   const sel = document.getElementById('wallpaperSelector');
+  if (!sel) return;
+
   sel.style.display = 'block';
   document.querySelectorAll('.wallpaper-option').forEach(option => {
     option.classList.remove('selected');
@@ -174,69 +211,30 @@ function openWallpaperSelector() {
   });
 }
 function closeWallpaperSelector() {
-  document.getElementById('wallpaperSelector').style.display = 'none';
+  const el = document.getElementById('wallpaperSelector');
+  if (el) el.style.display = 'none';
 }
 function selectWallpaper(wallpaper) {
   selectedWallpaper = wallpaper;
   document.querySelectorAll('.wallpaper-option').forEach(option => option.classList.remove('selected'));
-  document.querySelector(`[data-bg="${wallpaper}"]`).classList.add('selected');
+  const op = document.querySelector(`[data-bg="${wallpaper}"]`);
+  if (op) op.classList.add('selected');
 }
 function applyWallpaper() {
   document.body.className = `bg-${selectedWallpaper}`;
   currentWallpaper = selectedWallpaper;
-  localStorage.setItem('xp-wallpaper', selectedWallpaper);
+  try { localStorage.setItem('xp-wallpaper', selectedWallpaper); } catch {}
   closeWallpaperSelector();
 }
 
-// Cargar fondo guardado
-window.addEventListener('load', function () {
-  const savedWallpaper = localStorage.getItem('xp-wallpaper');
-  if (savedWallpaper) {
-    currentWallpaper = savedWallpaper;
-    selectedWallpaper = savedWallpaper;
-    document.body.className = `bg-${savedWallpaper}`;
-  }
-});
-
-// Arrastrar ventanas
-let isDragging = false;
-let currentWindow = null;
-let offset = { x: 0, y: 0 };
-
-document.addEventListener('mousedown', function (e) {
-  if (e.target.classList.contains('title-bar')) {
-    isDragging = true;
-    currentWindow = e.target.parentElement;
-    bringToFront(currentWindow);
-
-    const rect = currentWindow.getBoundingClientRect();
-    offset.x = e.clientX - rect.left;
-    offset.y = e.clientY - rect.top;
-  }
-});
-
-document.addEventListener('mousemove', function (e) {
-  if (isDragging && currentWindow) {
-    currentWindow.style.left = (e.clientX - offset.x) + 'px';
-    currentWindow.style.top = (e.clientY - offset.y) + 'px';
-  }
-});
-
-document.addEventListener('mouseup', function () {
-  isDragging = false;
-  currentWindow = null;
-});
-
-// Tecla Escape para cerrar selector
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') closeWallpaperSelector();
-});
-
-// Notificaciones
+/* =========================
+   Notificaciones (toast)
+   ========================= */
 function showNotification(title, message, duration = 4000) {
   const notification = document.getElementById('notification');
   const titleEl = document.getElementById('notificationTitle');
   const messageEl = document.getElementById('notificationMessage');
+  if (!notification || !titleEl || !messageEl) return;
 
   titleEl.textContent = title;
   messageEl.textContent = message;
@@ -245,7 +243,9 @@ function showNotification(title, message, duration = 4000) {
   setTimeout(() => { notification.classList.remove('show'); }, duration);
 }
 
-// Formulario de contacto
+/* =========================
+   Formulario de contacto
+   ========================= */
 function submitContactForm(event) {
   event.preventDefault();
   const formData = {
@@ -263,77 +263,89 @@ function submitContactForm(event) {
   submitBtn.textContent = '📤 Enviando...';
   submitBtn.disabled = true;
 
+  // Simulación de envío
   setTimeout(() => {
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
 
-    showNotification(
-      '✅ Mensaje Enviado',
-      `¡Gracias ${formData.name}! Tu mensaje ha sido enviado correctamente. Te contactaré pronto.`
-    );
-
+    showNotification('✅ Mensaje Enviado', `¡Gracias ${formData.name}! Tu mensaje ha sido enviado correctamente. Te contactaré pronto.`);
     clearContactForm();
-  }, 2000);
+  }, 1500);
 }
 
 function clearContactForm() {
-  document.getElementById('contactForm').reset();
+  const form = document.getElementById('contactForm');
+  if (form) form.reset();
 }
 
-// Paint
+/* =========================
+   Paint
+   ========================= */
 let isDrawing = false;
 let canvas, ctx;
 
-window.addEventListener('load', function () {
+function initPaint() {
   canvas = document.getElementById('paintCanvas');
-  if (canvas) {
-    ctx = canvas.getContext('2d');
+  if (!canvas) return;
 
-    canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
+  ctx = canvas.getContext('2d');
 
-    document.getElementById('brushSize').addEventListener('input', function () {
-      document.getElementById('sizeDisplay').textContent = this.value;
+  const startDrawing = (e) => {
+    isDrawing = true;
+    const rect = canvas.getBoundingClientRect();
+    ctx.beginPath();
+    ctx.moveTo((e.clientX || e.touches?.[0]?.clientX) - rect.left, (e.clientY || e.touches?.[0]?.clientY) - rect.top);
+  };
+
+  const draw = (e) => {
+    if (!isDrawing) return;
+    const rect = canvas.getBoundingClientRect();
+    const color = document.getElementById('colorPicker').value;
+    const size = document.getElementById('brushSize').value;
+
+    ctx.lineWidth = size;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = color;
+
+    const x = (e.clientX || e.touches?.[0]?.clientX) - rect.left;
+    const y = (e.clientY || e.touches?.[0]?.clientY) - rect.top;
+    ctx.lineTo(x, y);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  };
+
+  const stopDrawing = () => {
+    isDrawing = false;
+    ctx.beginPath();
+  };
+
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('mouseout', stopDrawing);
+  // táctil
+  canvas.addEventListener('touchstart', startDrawing, { passive: true });
+  canvas.addEventListener('touchmove', draw, { passive: true });
+  canvas.addEventListener('touchend', stopDrawing);
+
+  const brush = document.getElementById('brushSize');
+  if (brush) {
+    const disp = document.getElementById('sizeDisplay');
+    brush.addEventListener('input', function () {
+      if (disp) disp.textContent = this.value;
     });
   }
-});
-
-function startDrawing(e) {
-  isDrawing = true;
-  const rect = canvas.getBoundingClientRect();
-  ctx.beginPath();
-  ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-}
-
-function draw(e) {
-  if (!isDrawing) return;
-
-  const rect = canvas.getBoundingClientRect();
-  const color = document.getElementById('colorPicker').value;
-  const size = document.getElementById('brushSize').value;
-
-  ctx.lineWidth = size;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = color;
-
-  ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-}
-
-function stopDrawing() {
-  isDrawing = false;
-  ctx.beginPath();
 }
 
 function clearCanvas() {
+  if (!ctx) return;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// Bloc de notas
+/* =========================
+   Bloc de notas
+   ========================= */
 function saveNote() {
   const text = document.getElementById('notepadText').value;
   const blob = new Blob([text], { type: 'text/plain' });
@@ -346,17 +358,21 @@ function saveNote() {
 }
 
 function clearNote() {
-  document.getElementById('notepadText').value = '';
+  const ta = document.getElementById('notepadText');
+  if (ta) ta.value = '';
 }
 
-// Calculadora
+/* =========================
+   Calculadora
+   ========================= */
 let calcCurrentInput = '0';
 let calcOperator = null;
 let calcPreviousInput = null;
 let calcWaitingForOperand = false;
 
 function updateCalcDisplay() {
-  document.getElementById('calcDisplay').textContent = calcCurrentInput;
+  const el = document.getElementById('calcDisplay');
+  if (el) el.textContent = calcCurrentInput;
 }
 
 function calcNumber(num) {
@@ -377,7 +393,6 @@ function calcOperation(nextOperator) {
   } else if (calcOperator) {
     const currentValue = calcPreviousInput || 0;
     const newValue = calculate(currentValue, inputValue, calcOperator);
-
     calcCurrentInput = String(newValue);
     calcPreviousInput = newValue;
     updateCalcDisplay();
@@ -405,8 +420,8 @@ function calculate(firstOperand, secondOperand, operator) {
     case '+': return firstOperand + secondOperand;
     case '-': return firstOperand - secondOperand;
     case '*': return firstOperand * secondOperand;
-    case '/': return firstOperand / secondOperand;
-    default: return secondOperand;
+    case '/': return secondOperand === 0 ? 0 : firstOperand / secondOperand;
+    default:  return secondOperand;
   }
 }
 
@@ -418,9 +433,12 @@ function clearCalc() {
   updateCalcDisplay();
 }
 
-// Explorador
+/* =========================
+   Explorador
+   ========================= */
 function loadFolder(folderName) {
   const fileList = document.getElementById('fileList');
+  if (!fileList) return;
 
   const folders = {
     portfolio: `
@@ -466,7 +484,9 @@ function loadFolder(folderName) {
   fileList.innerHTML = folders[folderName] || folders.portfolio;
 }
 
-// Paquetes
+/* =========================
+   Paquetes (comisiones)
+   ========================= */
 let packagesData = [
   {
     name: 'Paquete Básico',
@@ -530,8 +550,9 @@ function addNewPackage() {
   const name = prompt('Nombre del paquete:');
   if (!name) return;
 
-  const price = parseFloat(prompt('Precio del paquete ($):'));
-  if (!price || price < 0) return;
+  const priceStr = prompt('Precio del paquete ($):');
+  const price = Number(priceStr);
+  if (!Number.isFinite(price) || price < 0) return;
 
   const description = prompt('Descripción breve:');
   if (!description) return;
@@ -550,7 +571,6 @@ function addNewPackage() {
 
 function exportPackages() {
   let csvContent = 'Nombre,Precio,Descripción,Tiempo de Entrega,Incluye\n';
-
   packagesData.forEach(pkg => {
     const includesText = pkg.includes.join('; ');
     const priceText = pkg.price === 0 ? 'A Cotizar' : `$${pkg.price}`;
@@ -568,7 +588,9 @@ function exportPackages() {
   showNotification('💾 Exportación Completa', 'Lista de paquetes exportada como CSV');
 }
 
-// Galería - Filtros
+/* =========================
+   Galería - Filtros
+   ========================= */
 function showCategory(category) {
   const artPieces = document.querySelectorAll('.art-piece');
   const categoryButtons = document.querySelectorAll('.category-btn');
@@ -595,174 +617,201 @@ function showCategory(category) {
   });
 }
 
-// Reproductor
-let isPlaying = false;
-let currentTrack = 0;
-let progressInterval;
-
-const tracks = [
-  'Música Inspiradora para Artistas',
-  'Sonidos de la Creatividad',
-  'Melodías para Pintar',
-  'Ritmos Abstractos'
-];
-
-function playPause() {
+/* =========================
+   Reproductor (Audio real)
+   ========================= */
+/* Usa el <audio id="bgAudio" src="./WorldFrutti.mp3" preload="auto" loop></audio> del HTML */
+function initAudioPlayer() {
+  const audio = document.getElementById('bgAudio');
   const playBtn = document.getElementById('playBtn');
   const progressBar = document.getElementById('progressBar');
 
-  if (isPlaying) {
-    playBtn.textContent = '▶️ Play';
-    clearInterval(progressInterval);
-    isPlaying = false;
-  } else {
-    playBtn.textContent = '⏸️ Pause';
-    startProgress();
-    isPlaying = true;
-  }
-}
+  if (!audio) return;
 
-function stopMusic() {
-  const playBtn = document.getElementById('playBtn');
-  const progressBar = document.getElementById('progressBar');
+  // Volumen inicial
+  audio.volume = 0.35;
 
-  playBtn.textContent = '▶️ Play';
-  progressBar.style.width = '0%';
-  clearInterval(progressInterval);
-  isPlaying = false;
-}
+  // Autoplay SOLO tras primera interacción del usuario
+  let unlocked = false;
+  const tryAutoplay = () => {
+    if (unlocked) return;
+    unlocked = true;
+    audio.play().then(() => {
+      if (playBtn) playBtn.textContent = '⏸️ Pause';
+    }).catch(() => {
+      // Si falla autoplay, no pasa nada; queda en pausa hasta que toquen Play
+    });
+  };
+  document.addEventListener('pointerdown', tryAutoplay, { once: true });
 
-function nextTrack() {
-  currentTrack = (currentTrack + 1) % tracks.length;
-  document.querySelector('#mediaplayer .window-content div:nth-child(2) div:first-child').textContent = tracks[currentTrack];
-
-  if (isPlaying) {
-    stopMusic();
-    setTimeout(playPause, 100);
-  }
-}
-
-function startProgress() {
-  let progress = 0;
-  const progressBar = document.getElementById('progressBar');
-
-  progressInterval = setInterval(() => {
-    progress += 1;
-    progressBar.style.width = progress + '%';
-
-    if (progress >= 100) {
-      nextTrack();
-      if (isPlaying) progress = 0;
+  // Progreso
+  function updateProgressUI() {
+    if (!progressBar) return;
+    if (!audio.duration || isNaN(audio.duration)) {
+      progressBar.style.width = '0%';
+      return;
     }
-  }, 100);
+    const pct = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = pct + '%';
+  }
+  audio.addEventListener('timeupdate', updateProgressUI);
+  audio.addEventListener('loadedmetadata', updateProgressUI);
+  audio.addEventListener('ended', () => {
+    if (playBtn) playBtn.textContent = '▶️ Play';
+    updateProgressUI();
+  });
+
+  // Controles llamados desde los botones del reproductor (HTML usa onclick="...")
+  window.playPause = function () {
+    if (audio.paused) {
+      audio.play().then(() => {
+        if (playBtn) playBtn.textContent = '⏸️ Pause';
+      }).catch(() => {});
+    } else {
+      audio.pause();
+      if (playBtn) playBtn.textContent = '▶️ Play';
+    }
+  };
+
+  window.stopMusic = function () {
+    audio.pause();
+    audio.currentTime = 0;
+    if (playBtn) playBtn.textContent = '▶️ Play';
+    if (progressBar) progressBar.style.width = '0%';
+  };
+
+  // Solo hay una pista; "Siguiente" reinicia
+  window.nextTrack = function () {
+    audio.currentTime = 0;
+    audio.play().then(() => {
+      if (playBtn) playBtn.textContent = '⏸️ Pause';
+    }).catch(() => {});
+  };
 }
 
-/* ========= Vista Previa (para esculturas y más) ========= */
+/* =========================
+   Vista Previa (galería)
+   ========================= */
 function showPreview(imgSrc, title, driveUrl) {
-  const win = document.getElementById('preview');
-  const img = document.getElementById('previewImg');
   const ttl = document.getElementById('previewTitle');
+  const img = document.getElementById('previewImg');
   const drv = document.getElementById('previewDrive');
 
-  img.src = imgSrc;
-  img.alt = title || '';
-  ttl.textContent = title || 'Vista Previa';
+  if (ttl) ttl.textContent = title || 'Vista Previa';
+  if (img) {
+    img.src = imgSrc || '';
+    img.alt = title || '';
+  }
   if (drv) {
     drv.href = driveUrl || '#';
     drv.style.display = driveUrl ? 'inline' : 'none';
   }
 
-  // Mostrar e integrar con el gestor de ventanas
-  win.style.display = 'block';
-  if (typeof openWindow === 'function') openWindow('preview');
+  openWindow('preview');
 }
 
-/* --- Bloque final copiado tal cual del snippet incluido ---
-   Nota: parece ser un script de Cloudflare. Si usas esto localmente
-   y te causa errores, puedes eliminarlo sin afectar tu sitio. */
-(function(){
-  function c(){
-    var b=a.contentDocument||a.contentWindow.document;
-    if(b){
-      var d=b.createElement('script');
-      d.innerHTML="window.__CF$cv$params={r:'972f93542784c033',t:'MTc1NTgzNjQwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
-      b.getElementsByTagName('head')[0].appendChild(d)
+/* =========================
+   Arrastrar ventanas
+   ========================= */
+document.addEventListener('mousedown', function (e) {
+  const titleBar = e.target.closest?.('.title-bar');
+  if (!titleBar) return;
+
+  // Evitar arrastrar si clic en controles (min/max/cerrar)
+  if (e.target.closest('.window-controls')) return;
+
+  currentWindow = titleBar.parentElement;
+  if (!currentWindow || currentWindow.classList.contains('maximized')) return;
+
+  isDragging = true;
+  bringToFront(currentWindow);
+
+  const rect = currentWindow.getBoundingClientRect();
+  offset.x = e.clientX - rect.left;
+  offset.y = e.clientY - rect.top;
+});
+
+document.addEventListener('mousemove', function (e) {
+  if (!isDragging || !currentWindow) return;
+  currentWindow.style.left = (e.clientX - offset.x) + 'px';
+  currentWindow.style.top = (e.clientY - offset.y) + 'px';
+});
+
+document.addEventListener('mouseup', function () {
+  isDragging = false;
+  currentWindow = null;
+});
+
+/* =========================
+   Tecla Escape: cerrar selector
+   ========================= */
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeWallpaperSelector();
+});
+
+/* =========================
+   Inicio (DOMContentLoaded)
+   ========================= */
+document.addEventListener('DOMContentLoaded', () => {
+  // Fondo guardado
+  try {
+    const savedWallpaper = localStorage.getItem('xp-wallpaper');
+    if (savedWallpaper) {
+      currentWallpaper = savedWallpaper;
+      selectedWallpaper = savedWallpaper;
+      document.body.className = `bg-${savedWallpaper}`;
     }
-  }
-  if(document.body){
-    var a=document.createElement('iframe');
-    a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';
-    document.body.appendChild(a);
-    if('loading'!==document.readyState)c();
-    else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);
-    else{
-      var e=document.onreadystatechange||function(){};
-      document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}
-    }
-  }
-  // === Música de fondo ===
-const audio = document.getElementById('bgAudio');
-const playBtn = document.getElementById('playBtn');
-const progressBar = document.getElementById('progressBar');
+  } catch {}
 
-// Volumen inicial
-if (audio) audio.volume = 0.35;
+  // Inicializar módulos
+  initPaint();
+  initAudioPlayer();
+  updateTaskbar();
 
-// Autoplay tras la primera interacción (por política de los navegadores)
-let started = false;
-document.addEventListener('click', () => {
-  if (started || !audio) return;
-  started = true;
-  audio.play().then(() => {
-    if (playBtn) playBtn.textContent = '⏸️ Pause';
-  }).catch(console.warn);
-}, { once: true });
+  // Selección por defecto de galería
+  showCategory('all');
 
-// Controles usados por tu reproductor de la ventana "mediaplayer"
-window.playPause = function () {
-  if (!audio) return;
-  if (audio.paused) {
-    audio.play();
-    if (playBtn) playBtn.textContent = '⏸️ Pause';
-  } else {
-    audio.pause();
-    if (playBtn) playBtn.textContent = '▶️ Play';
-  }
-};
-
-window.stopMusic = function () {
-  if (!audio) return;
-  audio.pause();
-  audio.currentTime = 0;
-  if (playBtn) playBtn.textContent = '▶️ Play';
-  updateProgressUI();
-};
-
-// Si más adelante tienes varias canciones, aquí rotas el índice.
-// Por ahora, con una sola pista, "Siguiente" reinicia.
-window.nextTrack = function () {
-  if (!audio) return;
-  audio.currentTime = 0;
-  audio.play();
-  if (playBtn) playBtn.textContent = '⏸️ Pause';
-};
-
-// Barra de progreso
-function updateProgressUI() {
-  if (!audio || !progressBar || !audio.duration) {
-    if (progressBar) progressBar.style.width = '0%';
-    return;
-  }
-  const pct = (audio.currentTime / audio.duration) * 100;
-  progressBar.style.width = pct + '%';
-}
-
-if (audio) {
-  audio.addEventListener('timeupdate', updateProgressUI);
-  audio.addEventListener('loadedmetadata', updateProgressUI);
-  audio.addEventListener('ended', () => {
-    if (playBtn) playBtn.textContent = '▶️ Play';
+  // Asegurar display inicial correcto de ventanas abiertas por defecto
+  document.querySelectorAll('.window').forEach(win => {
+    if (win.style.display === 'block') bringToFront(win);
   });
-}
+});
 
-})();
+/* ==== Exponer funciones necesarias al scope global (por atributos HTML) ==== */
+window.openWindow = openWindow;
+window.closeWindow = closeWindow;
+window.minimizeWindow = minimizeWindow;
+window.restoreWindow = restoreWindow;
+window.maximizeWindow = maximizeWindow;
+
+window.minimizeWallpaperSelector = minimizeWallpaperSelector;
+window.maximizeWallpaperSelector = maximizeWallpaperSelector;
+window.openWallpaperSelector = openWallpaperSelector;
+window.closeWallpaperSelector = closeWallpaperSelector;
+window.selectWallpaper = selectWallpaper;
+window.applyWallpaper = applyWallpaper;
+
+window.showNotification = showNotification;
+
+window.submitContactForm = submitContactForm;
+window.clearContactForm = clearContactForm;
+
+window.clearCanvas = clearCanvas;
+
+window.saveNote = saveNote;
+window.clearNote = clearNote;
+
+window.calcNumber = calcNumber;
+window.calcOperation = calcOperation;
+window.calcEquals = calcEquals;
+window.clearCalc = clearCalc;
+
+window.loadFolder = loadFolder;
+
+window.selectPackage = selectPackage;
+window.addNewPackage = addNewPackage;
+window.exportPackages = exportPackages;
+
+window.showCategory = showCategory;
+
+window.showPreview = showPreview;
