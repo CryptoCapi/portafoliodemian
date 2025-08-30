@@ -1,0 +1,1145 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            overflow: hidden;
+            background: url('https://miro.medium.com/v2/resize:fit:1400/1*_zqJUXJaDneHRrXeXtR5vQ.webp') center/cover no-repeat;
+            position: relative;
+            transition: background 1s ease;
+        }
+
+        body.gradient-mode {
+            background: linear-gradient(135deg, #87CEEB 0%, #98FB98 25%, #87CEFA 50%, #90EE90 75%, #ADD8E6 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        /* Overlay para mejorar legibilidad */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(1px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Animación de fondo dinámico */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Elementos flotantes Frutiger Aero */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+            backdrop-filter: blur(2px);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Escritorio */
+        .desktop {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            z-index: 3;
+        }
+
+        /* Iconos del escritorio con efecto glass */
+        .desktop-icons {
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 120px);
+            grid-template-rows: repeat(auto-fill, 140px);
+            gap: 25px;
+            align-content: start;
+        }
+
+        .desktop-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .desktop-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .desktop-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .desktop-icon:hover::before {
+            left: 100%;
+        }
+
+        .desktop-icon:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .icon-image {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 8px;
+            font-size: 48px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+            transition: all 0.3s ease;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .desktop-icon:hover .icon-image {
+            transform: scale(1.1);
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3)) brightness(1.2);
+        }
+
+        .icon-label {
+            color: #2c3e50;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+            max-width: 100px;
+            line-height: 1.2;
+        }
+
+        /* Barra de tareas con efecto glass */
+        .taskbar {
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .start-button {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.8), rgba(70, 130, 180, 0.8));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .start-button:hover {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.9), rgba(70, 130, 180, 0.9));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .taskbar-buttons {
+            display: flex;
+            gap: 8px;
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .taskbar-button {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: #2c3e50;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 8px 16px;
+            cursor: pointer;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            display: none;
+        }
+
+        .taskbar-button.active {
+            background: rgba(70, 130, 180, 0.4);
+            border: 1px solid rgba(70, 130, 180, 0.6);
+            color: white;
+        }
+
+        .taskbar-button:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .taskbar-time {
+            margin-left: auto;
+            color: #2c3e50;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+        }
+
+        /* Menú de Inicio */
+        .start-menu {
+            position: fixed;
+            bottom: 60px;
+            left: 20px;
+            width: 400px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            z-index: 1500;
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .start-menu.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: all;
+        }
+
+        .start-menu-header {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.9), rgba(64, 224, 208, 0.9));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .start-menu-header h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .start-menu-header p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .start-menu-content {
+            padding: 20px;
+            height: calc(100% - 80px);
+            overflow-y: auto;
+        }
+
+        .start-menu-section {
+            margin-bottom: 25px;
+        }
+
+        .start-menu-section h3 {
+            color: #2c3e50;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(70, 130, 180, 0.2);
+        }
+
+        .start-menu-apps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .start-menu-app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+        }
+
+        .start-menu-app:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .start-menu-app img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+
+        .start-menu-app-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .start-menu-app-name {
+            font-size: 11px;
+            font-weight: 500;
+            color: #2c3e50;
+            line-height: 1.2;
+            max-width: 80px;
+            word-wrap: break-word;
+        }
+
+        .start-menu-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .start-menu-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .start-menu-avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.8), rgba(70, 130, 180, 0.8));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .start-menu-username {
+            font-size: 12px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .start-menu-power {
+            background: rgba(231, 76, 60, 0.8);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .start-menu-power:hover {
+            background: rgba(231, 76, 60, 0.9);
+            transform: translateY(-1px);
+        }
+
+        /* Scrollbar para el menú de inicio */
+        .start-menu-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .start-menu-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .start-menu-content::-webkit-scrollbar-thumb {
+            background: rgba(70, 130, 180, 0.5);
+            border-radius: 3px;
+        }
+
+        .start-menu-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(70, 130, 180, 0.7);
+        }
+
+        /* Ventanas con efecto glass mejorado */
+        .window {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            min-width: 400px;
+            min-height: 300px;
+            display: none;
+            z-index: 100;
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .window.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .window.active {
+            z-index: 200;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .title-bar {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.85), rgba(64, 224, 208, 0.85));
+            backdrop-filter: blur(15px);
+            color: white;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+            border-radius: 20px 20px 0 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .window-control {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .window-control:nth-child(1) {
+            background: rgba(255, 193, 7, 0.8);
+            color: #856404;
+        }
+
+        .window-control:nth-child(2) {
+            background: rgba(40, 167, 69, 0.8);
+            color: #155724;
+        }
+
+        .window-control:nth-child(3) {
+            background: rgba(220, 53, 69, 0.8);
+            color: #721c24;
+        }
+
+        .window-control:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .window-content {
+            padding: 25px;
+            height: calc(100% - 60px);
+            overflow-y: auto;
+            color: #2c3e50;
+        }
+
+        /* Scrollbar personalizada */
+        .window-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .window-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .window-content::-webkit-scrollbar-thumb {
+            background: rgba(70, 130, 180, 0.5);
+            border-radius: 4px;
+        }
+
+        .window-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(70, 130, 180, 0.7);
+        }
+
+        /* Formularios con estilo glass */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(70, 130, 180, 0.3);
+            border-radius: 12px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            color: #2c3e50;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: rgba(70, 130, 180, 0.6);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.1);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.8), rgba(64, 224, 208, 0.8));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: white;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 12px;
+            transition: all 0.3s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-button.secondary {
+            background: rgba(255, 255, 255, 0.4);
+            color: #2c3e50;
+            text-shadow: none;
+        }
+
+        /* Galería con efecto glass */
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .art-piece {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .art-piece::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+            opacity: 0;
+        }
+
+        .art-piece:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .art-piece:hover::before {
+            opacity: 1;
+            top: -100%;
+            left: -100%;
+        }
+
+        .art-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.6), rgba(70, 130, 180, 0.6));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Botones de categoría */
+        .category-btn {
+            padding: 8px 16px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, rgba(70, 130, 180, 0.8), rgba(64, 224, 208, 0.8));
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .category-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la app de fondos */
+        .bg-option {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bg-option.active {
+            border-color: rgba(70, 130, 180, 0.8);
+            box-shadow: 0 0 0 2px rgba(70, 130, 180, 0.3);
+        }
+
+        /* Notificaciones */
+        .notification {
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 350px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .notification-message {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #5a6c7d;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Escritorio móvil */
+            .desktop-icons {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(auto-fill, 100px);
+                gap: 10px;
+                padding: 10px;
+                justify-items: center;
+            }
+            
+            .desktop-icon {
+                width: 80px;
+                padding: 8px;
+                border-radius: 12px;
+            }
+            
+            .icon-image {
+                width: 48px;
+                height: 48px;
+                font-size: 36px;
+                margin-bottom: 5px;
+            }
+            
+            .icon-label {
+                font-size: 10px;
+                line-height: 1.1;
+                max-width: 70px;
+            }
+            
+            /* Ventanas en móvil */
+            .window {
+                position: fixed !important;
+                top: 5px !important;
+                left: 5px !important;
+                right: 5px !important;
+                bottom: 65px !important;
+                width: auto !important;
+                height: auto !important;
+                min-width: auto;
+                min-height: auto;
+                border-radius: 15px;
+                max-height: calc(100vh - 70px);
+            }
+            
+            .title-bar {
+                padding: 10px 15px;
+                font-size: 13px;
+                touch-action: none;
+            }
+            
+            .window-content {
+                padding: 15px;
+                font-size: 13px;
+                height: calc(100% - 50px);
+            }
+            
+            /* Barra de tareas móvil */
+            .taskbar {
+                height: 60px;
+                padding: 0 8px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+            }
+            
+            .start-button {
+                font-size: 12px;
+                padding: 6px 12px;
+                border-radius: 20px;
+                flex-shrink: 0;
+            }
+            
+            .taskbar-buttons {
+                margin-left: 10px;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+            
+            .taskbar-button {
+                font-size: 11px;
+                padding: 6px 12px;
+                border-radius: 10px;
+                max-width: 120px;
+                flex-shrink: 0;
+            }
+            
+            .taskbar-time {
+                font-size: 11px;
+                padding: 6px 10px;
+                border-radius: 10px;
+                margin-left: 10px;
+                flex-shrink: 0;
+            }
+            
+            /* Menú de inicio móvil */
+            .start-menu {
+                position: fixed;
+                bottom: 70px;
+                left: 5px;
+                right: 5px;
+                width: auto;
+                height: 70vh;
+                max-height: 500px;
+                border-radius: 15px;
+            }
+            
+            .start-menu-header {
+                padding: 15px;
+                border-radius: 15px 15px 0 0;
+            }
+            
+            .start-menu-header h2 {
+                font-size: 16px;
+            }
+            
+            .start-menu-header p {
+                font-size: 11px;
+            }
+            
+            .start-menu-content {
+                padding: 15px;
+            }
+            
+            .start-menu-section h3 {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+            
+            .start-menu-apps {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+            }
+            
+            .start-menu-app {
+                padding: 10px 5px;
+                border-radius: 12px;
+            }
+            
+            .start-menu-app img {
+                width: 28px;
+                height: 28px;
+                margin-bottom: 6px;
+            }
+            
+            .start-menu-app-icon {
+                font-size: 24px;
+                margin-bottom: 6px;
+            }
+            
+            .start-menu-app-name {
+                font-size: 9px;
+                max-width: 60px;
+            }
+            
+            .start-menu-footer {
+                padding: 12px 15px;
+            }
+            
+            .start-menu-avatar {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+            
+            .start-menu-username {
+                font-size: 11px;
+            }
+            
+            .start-menu-power {
+                padding: 6px 10px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+            
+            /* Formularios móviles */
+            .form-input, .form-textarea {
+                padding: 10px 12px;
+                font-size: 16px; /* Evita zoom en iOS */
+                border-radius: 10px;
+            }
+            
+            .form-button {
+                padding: 12px 20px;
+                font-size: 14px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .form-button.secondary {
+                margin-top: 5px;
+            }
+            
+            /* Galería móvil */
+            .art-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .art-piece {
+                padding: 12px;
+                border-radius: 12px;
+            }
+            
+            .art-placeholder {
+                height: 120px;
+                font-size: 14px;
+                border-radius: 8px;
+                margin-bottom: 8px;
+            }
+            
+            /* Categorías móviles */
+            .category-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+                border-radius: 15px;
+                margin-bottom: 5px;
+            }
+            
+            /* Comisiones móviles */
+            #services .window-content > div {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            
+            /* Paint móvil */
+            #paintCanvas {
+                touch-action: none;
+            }
+            
+            /* Calculadora móvil */
+            #calculator {
+                width: 90% !important;
+                max-width: 300px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+            }
+            
+            #calculator .window-content > div:last-child button {
+                padding: 15px;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+            
+            /* Explorador móvil */
+            #explorer .window-content > div:last-child {
+                flex-direction: column;
+            }
+            
+            #explorer .window-content > div:last-child > div:first-child {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #fileList {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 10px !important;
+            }
+            
+            /* Notificaciones móviles */
+            .notification {
+                bottom: 70px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                border-radius: 12px;
+                padding: 15px;
+            }
+            
+            .notification-title {
+                font-size: 13px;
+            }
+            
+            .notification-message {
+                font-size: 11px;
+            }
+            
+            /* Fondos móviles */
+            #backgrounds .bg-option {
+                height: 60px;
+                border-radius: 12px;
+            }
+            
+            #backgrounds .bg-option > div {
+                font-size: 12px;
+            }
+            
+            #backgrounds .bg-option > div > div:first-child {
+                font-size: 20px;
+                margin-bottom: 3px;
+            }
+            
+            #backgrounds .bg-option > div > div:nth-child(2) {
+                font-size: 13px;
+            }
+            
+            #backgrounds .bg-option > div > div:last-child {
+                font-size: 10px;
+            }
+            
+            /* Elementos flotantes móviles */
+            .bubble {
+                /* Mantener burbujas en móvil pero con menos cantidad */
+            }
+            
+            /* Scrollbars móviles */
+            .window-content::-webkit-scrollbar,
+            .start-menu-content::-webkit-scrollbar {
+                width: 4px;
+            }
+            
+            /* Ajustes específicos para contenido */
+            h1 {
+                font-size: 22px !important;
+            }
+            
+            h2 {
+                font-size: 18px !important;
+            }
+            
+            h3 {
+                font-size: 16px !important;
+            }
+            
+            p {
+                font-size: 13px !important;
+                line-height: 1.5 !important;
+            }
+            
+            /* Grids responsivos */
+            .window-content > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+            
+            /* Contacto móvil */
+            #contact .window-content > form > div:first-child,
+            #contact .window-content > form > div:nth-child(2) {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Ajustes para pantallas muy pequeñas */
+            .desktop-icons {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                padding: 8px;
+            }
+            
+            .desktop-icon {
+                width: 70px;
+                padding: 6px;
+            }
+            
+            .icon-image {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+            
+            .icon-label {
+                font-size: 9px;
+                max-width: 60px;
+            }
+            
+            .start-menu-apps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .art-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .taskbar {
+                height: 55px;
+                padding: 0 5px;
+            }
+            
+            .start-button {
+                font-size: 11px;
+                padding: 5px 10px;
+            }
+            
+            .taskbar-time {
+                font-size: 10px;
+                padding: 5px 8px;
+            }
+        }
+
+        /* Efectos especiales */
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(64, 224, 208, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(64, 224, 208, 0.8)); }
+        }
+   

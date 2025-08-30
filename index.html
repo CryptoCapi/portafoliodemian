@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emil Tenorio Rico - Portfolio Artístico | Frutiger Aero XP</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Elementos flotantes Frutiger Aero -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <div class="desktop">
+        <!-- Iconos del escritorio -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" onclick="openWindow('portfolio')">
+                <img class="icon-image" src="https://i.pinimg.com/736x/6a/8a/a2/6a8aa24b667414cb8e8e6853afef7c98.jpg" alt="Portfolio" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">🎨</div>
+                <div class="icon-label">Emil Tenorio<br>Portfolio</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('about')">
+                <img class="icon-image" src="https://d2bzx2vuetkzse.cloudfront.net/images_without_background/2489889c-3e01-410c-821a-e2f075d7c69a.png" alt="About" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">👨‍🎨</div>
+                <div class="icon-label">Sobre Mí</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('gallery')">
+                <img class="icon-image" src="https://i.pinimg.com/474x/73/e5/06/73e506e232b9491c4240e4c5b5b05546.jpg" alt="Gallery" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">🔮</div>
+                <div class="icon-label">Galería </div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('contact')">
+                <img class="icon-image" src="https://data.chpic.su/stickers/f/FrutigerAero_xkysluv/FrutigerAero_xkysluv_005.webp?v=1750862291" alt="Contact" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">📧</div>
+                <div class="icon-label">Contacto</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('services')">
+                <img class="icon-image" src="https://pbs.twimg.com/media/FyyJFavWwAAQBZ8.png" alt="Services" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">💰</div>
+                <div class="icon-label">Comisiones</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('paint')">
+                <img class="icon-image" src="https://preview.redd.it/glossy-desktop-icons-i-made-for-my-own-pc-feel-free-to-use-v0-50du63jpoz9f1.png?width=640&crop=smart&auto=webp&s=744ed96e18ce356a55ea7def08d2e3dc94b86b42" alt="Paint" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">🎨</div>
+                <div class="icon-label">Paint</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('notepad')">
+                <img class="icon-image" src="https://i.postimg.cc/ZKCpWhQz/Notepad-Vista-10.webp" alt="Notepad" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">📝</div>
+                <div class="icon-label">Bloc de Notas</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('calculator')">
+                <img class="icon-image" src="https://64.media.tumblr.com/0112b8cc7f3b329a8c6fad70e1a5d885/b5ed4f93b6d8f3b9-0f/s540x810/2e123d1cdaa4949c3c999a4b31868d81ba2df63e.png" alt="Calculator" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">🧮</div>
+                <div class="icon-label">Calculadora</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('explorer')">
+                <img class="icon-image" src="https://preview.redd.it/frutiger-aero-style-file-explorer-logo-v0-fq1qe31yml2c1.png?width=256&auto=webp&s=c76902f9f6c4a5abb4b61c0af06e4ecf70072ead" alt="Explorer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">📁</div>
+                <div class="icon-label">Explorador</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('mediaplayer')">
+                <img class="icon-image" src="https://files.softicons.com/download/application-icons/msn-icons-by-chris-scholten/ico/music-girl.ico" alt="Media Player" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">🎵</div>
+                <div class="icon-label">Reproductor</div>
+            </div>
+            
+            <div class="desktop-icon" onclick="openWindow('backgrounds')">
+                <img class="icon-image" src="https://i.pinimg.com/474x/b5/8a/42/b58a42f0c8f4c4a0c8f4c4a0c8f4c4a0.jpg" alt="Backgrounds" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="icon-image" style="display: none;">🌈</div>
+                <div class="icon-label">Fondos Frutiger</div>
+            </div>
+        </div>
+
+        <!-- Barra de tareas -->
+        <div class="taskbar">
+            <button class="start-button glow" onclick="toggleStartMenu()">
+                <img src="https://frutigeraeroarchive.org/images/icons/media/wmc1.ico" alt="Start" style="width: 20px; height: 20px; margin-right: 5px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+                <span style="display: none;">🌟</span>
+                <span>Inicio</span>
+            </button>
+            
+            <div class="taskbar-buttons" id="taskbarButtons">
+                <!-- Los botones de ventanas aparecerán aquí -->
+            </div>
+            
+            <div class="taskbar-time" id="clock">
+                12:00 PM
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Portfolio -->
+    <div id="portfolio" class="window" style="top: 80px; left: 100px; width: 600px; height: 500px;">
+        <div class="title-bar">
+            <span>🎨 Emil Tenorio Rico - Portfolio Artístico</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('portfolio')">−</div>
+                <div class="window-control" onclick="maximizeWindow('portfolio')">□</div>
+                <div class="window-control" onclick="closeWindow('portfolio')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h1 style="color: #2c3e50; margin-bottom: 10px; font-size: 28px; font-weight: 700;">Emil Tenorio Rico</h1>
+            <h2 style="color: #5a6c7d; margin-bottom: 25px; font-size: 18px; font-weight: 400;">Artista Visual - Especialista en Tarot y Arte Conceptual</h2>
+            
+            <div style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255, 255, 255, 0.3);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 20px;">✨ Sobre Mi Trabajo</h3>
+                <p style="font-size: 14px; line-height: 1.6; text-align: justify; margin-bottom: 15px;">
+                    Soy Emil Tenorio Rico, artista visual especializado en la creación de cartas de tarot únicas y arte conceptual. Mi trabajo se caracteriza por la exploración de simbolismos místicos y la reinterpretación contemporánea de arquetipos universales.
+                </p>
+                <p style="font-size: 14px; line-height: 1.6; text-align: justify; margin-bottom: 15px;">
+                    Mi enfoque artístico combina técnicas tradicionales con elementos digitales, creando piezas que dialogan entre lo ancestral y lo moderno. Cada carta de tarot que diseño es una obra de arte individual que mantiene la esencia simbólica mientras aporta una visión personal y contemporánea.
+                </p>
+            </div>
+            
+            <h3 style="color: #2c3e50; margin-bottom: 15px;">🌟 Especialidades:</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div style="background: rgba(64, 224, 208, 0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(64, 224, 208, 0.3);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">🔮</div>
+                    <div style="font-weight: 600; margin-bottom: 5px;">Diseño de Cartas de Tarot</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Creación de cartas únicas con simbolismo profundo</div>
+                </div>
+                <div style="background: rgba(70, 130, 180, 0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(70, 130, 180, 0.3);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">✨</div>
+                    <div style="font-weight: 600; margin-bottom: 5px;">Arte Conceptual</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Ilustraciones que exploran ideas y emociones</div>
+                </div>
+                <div style="background: rgba(144, 238, 144, 0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(144, 238, 144, 0.3);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">🎨</div>
+                    <div style="font-weight: 600; margin-bottom: 5px;">Arte Digital y Tradicional</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Técnicas mixtas para resultados únicos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Sobre Mí -->
+    <div id="about" class="window" style="top: 120px; left: 200px; width: 550px; height: 450px;">
+        <div class="title-bar">
+            <span>👨‍🎨 Sobre Emil Tenorio Rico</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('about')">−</div>
+                <div class="window-control" onclick="maximizeWindow('about')">□</div>
+                <div class="window-control" onclick="closeWindow('about')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <div style="width: 120px; height: 120px; background: linear-gradient(135deg, rgba(64, 224, 208, 0.6), rgba(70, 130, 180, 0.6)); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 48px;">👨‍🎨</div>
+                <h2 style="color: #2c3e50; margin-bottom: 8px;">Emil Tenorio Rico</h2>
+                <p style="color: #5a6c7d; font-style: italic;">Artista Visual & Creador de Tarot</p>
+            </div>
+            
+            <div style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.3);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">🎯 Mi Enfoque Artístico</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; font-size: 13px;">
+                    <div><strong>🔮 Tarot Artístico:</strong> Cada carta es una obra única</div>
+                    <div><strong>✨ Simbolismo Místico:</strong> Exploración de arquetipos</div>
+                    <div><strong>🎨 Técnica Mixta:</strong> Digital y tradicional</div>
+                    <div><strong>🌟 Visión Contemporánea:</strong> Reinterpretación moderna</div>
+                </div>
+            </div>
+            
+            <h3 style="color: #2c3e50; margin-bottom: 15px;">💭 Filosofía Artística</h3>
+            <p style="font-size: 14px; line-height: 1.6; text-align: justify;">
+                Mi obra busca crear puentes entre la sabiduría ancestral del tarot y la sensibilidad contemporánea. Cada pieza es una invitación a explorar los misterios del inconsciente colectivo a través del arte visual, donde cada símbolo cuenta una historia y cada color evoca una emoción profunda.
+            </p>
+        </div>
+    </div>
+
+    <!-- Ventana Galería -->
+    <div id="gallery" class="window" style="top: 60px; left: 300px; width: 700px; height: 600px;">
+        <div class="title-bar">
+            <span>🎨 Galería - Emil Tenorio Rico</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('gallery')">−</div>
+                <div class="window-control" onclick="maximizeWindow('gallery')">□</div>
+                <div class="window-control" onclick="closeWindow('gallery')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">🎨 Colección Artística</h2>
+            
+            <!-- Navegación por categorías -->
+            <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); padding: 15px; border-radius: 15px; margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 10px; border: 1px solid rgba(255, 255, 255, 0.4);">
+                <button onclick="showCategory('all')" id="btn-all" class="category-btn active">Todas</button>
+                <button onclick="showCategory('esculturas')" id="btn-esculturas" class="category-btn">🗿 Esculturas</button>
+                <button onclick="showCategory('bisuteria')" id="btn-bisuteria" class="category-btn">💎 Bisutería</button>
+                <button onclick="showCategory('collage')" id="btn-collage" class="category-btn">📄 Collage</button>
+                <button onclick="showCategory('tarot')" id="btn-tarot" class="category-btn">🔮 Tarot</button>
+                <button onclick="showCategory('emotes')" id="btn-emotes" class="category-btn">😊 Emotes</button>
+                <button onclick="showCategory('dibujo-digital')" id="btn-dibujo-digital" class="category-btn">🎨 Dibujo Digital</button>
+                <button onclick="showCategory('dibujo-tradicional')" id="btn-dibujo-tradicional" class="category-btn">✏️ Dibujo Tradicional</button>
+            </div>
+            
+            <!-- Galería de obras -->
+            <div class="art-gallery" id="artGallery">
+                <!-- ESCULTURAS -->
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura1.png" alt="Escultura 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(139, 69, 19, 0.6), rgba(160, 82, 45, 0.6)); display: none;">🗿 Escultura</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura I</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura2.jpg" alt="Escultura 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(101, 67, 33, 0.6), rgba(139, 69, 19, 0.6)); display: none;">🏺 Cerámica</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura II</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Cerámica • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura3.jpg" alt="Escultura 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎭 Figura</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura III</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura4.jpg" alt="Escultura 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(139, 69, 19, 0.6), rgba(101, 67, 33, 0.6)); display: none;">🏛️ Relieve</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura IV</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Cerámica • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura5.jpg" alt="Escultura 5" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">🗿 Busto</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura V</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura6.jpg" alt="Escultura 6" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(101, 67, 33, 0.6), rgba(139, 69, 19, 0.6)); display: none;">🏺 Vasija</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura VI</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Cerámica • 2024</div>
+                </div>
+                
+                <div class="art-piece" data-category="esculturas">
+                    <img src="image\escultura7.jpg" alt="Escultura 7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Escultura VII</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                </div>
+                
+                <!-- BISUTERÍA -->
+               <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia1.jpg" alt="bisuteria1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA VI</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+
+                     <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia2.jpg" alt="bisuteria2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA VII</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+
+                     <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia3.jpg" alt="bisuteria3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA V</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+
+                     <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia4.jpg" alt="bisuteria4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA :v</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+
+                     <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia5.jpg" alt="bisuteria5" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA 5</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+
+                     <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia6.jpeg" alt="bisuteria6" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA 6</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+
+                     <div class="art-piece" data-category="bisuteria">
+                    <img src="image\biseturia7.jpeg" alt="bisuteria7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(160, 82, 45, 0.6), rgba(205, 133, 63, 0.6)); display: none;">🎨 Abstracta</div>
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">BISUTERÍA 7</div>
+                    <div style="font-size: 12px; color: #5a6c7d;">Arcilla • 2024</div>
+                    </div>
+                
+                
+                
+                <!-- COLLAGE -->
+              <!-- Collage 1 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage.jpg" alt="Collage 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 165, 0, 0.6)); display: none;">📄 Collage</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage I</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+
+<!-- Collage 2 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage2.png" alt="Collage 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 99, 71, 0.6)); display: none;">🎨 Mixto</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage II</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+
+<!-- Collage 3 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage3.jpg" alt="Collage 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 165, 0, 0.6)); display: none;">📄 Collage</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage III</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+
+<!-- Collage 4 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage4.jpg" alt="Collage 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 99, 71, 0.6)); display: none;">🎨 Mixto</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage IV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+
+<!-- Collage 5 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage5.png" alt="Collage 5" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 165, 0, 0.6)); display: none;">📄 Collage</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage V</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+
+<!-- Collage 6 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage6.png" alt="Collage 6" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 99, 71, 0.6)); display: none;">🎨 Mixto</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage VI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+
+<!-- Collage 7 -->
+<div class="art-piece" data-category="collage">
+    <img src="image\collage7.jpg" alt="Collage 7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 99, 71, 0.6), rgba(255, 165, 0, 0.6)); display: none;">📄 Collage</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Collage VII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Técnica Mixta • 2024</div>
+</div>
+                
+                <!-- TAROT -->
+               <!-- Tarot 1 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot.jpg" alt="Tarot 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot I</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 2 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot2.jpg" alt="Tarot 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot II</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 3 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot3.jpg" alt="Tarot 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot III</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 4 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot4.jpg" alt="Tarot 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot IV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 5 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot5.jpg" alt="Tarot 5" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot V</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 6 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot6.jpg" alt="Tarot 6" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot VI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 7 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot7.jpg" alt="Tarot 7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot VII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 8 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot8.jpg" alt="Tarot 8" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot VIII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 9 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot9.jpg" alt="Tarot 9" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot IX</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 10 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot10.jpg" alt="Tarot 10" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot X</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 11 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot11.jpg" alt="Tarot 11" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 12 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot12.jpg" alt="Tarot 12" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 13 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot13.jpg" alt="Tarot 13" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XIII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 14 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot14.jpg" alt="Tarot 14" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XIV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 15 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot15.jpg" alt="Tarot 15" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 16 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot16.jpg" alt="Tarot 16" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XVI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 17 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot17.jpg" alt="Tarot 17" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XVII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 18 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot18.jpg" alt="Tarot 18" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XVIII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 19 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot19.jpg" alt="Tarot 19" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XIX</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 20 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot20.jpg" alt="Tarot 20" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XX</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 21 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot21.jpg" alt="Tarot 21" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XXI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+
+<!-- Tarot 22 -->
+<div class="art-piece" data-category="tarot">
+    <img src="image\tyarot22.jpg" alt="Tarot 22" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(123, 104, 238, 0.6), rgba(72, 61, 139, 0.6)); display: none;">🔮 Tarot</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Tarot XXII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Arte Digital • 2024</div>
+</div>
+                
+                <!-- EMOTES -->
+                 
+                <!-- Emote 1 -->
+<div class="art-piece" data-category="emotes">
+    <img src="image/o0o.png" alt="Emote o0o" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(255, 182, 193, 0.6)); display: none;">😃 Emote</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Emote o0o</div>
+    <div style="font-size: 12px; color: #5a6c7d;">PNG • 2024</div>
+</div>
+
+<!-- Emote 2 -->
+<div class="art-piece" data-category="emotes">
+    <img src="image/GG.png" alt="Emote GG" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(255, 182, 193, 0.6)); display: none;">😃 Emote</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Emote GG</div>
+    <div style="font-size: 12px; color: #5a6c7d;">PNG • 2024</div>
+</div>
+
+<!-- Emote 3 -->
+<div class="art-piece" data-category="emotes">
+    <img src="image/Chopperpipi.png" alt="Emote Chopperpipi" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(255, 182, 193, 0.6)); display: none;">😃 Emote</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Emote Chopperpipi</div>
+    <div style="font-size: 12px; color: #5a6c7d;">PNG • 2024</div>
+</div>
+                <!-- DIBUJO DIGITAL (mantenemos algunos) -->
+                <!-- Dibujo Digital 1 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital1.png" alt="Dibujo Digital 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital I</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 2 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital2.png" alt="Dibujo Digital 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital II</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 3 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital3.png" alt="Dibujo Digital 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital III</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 4 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital4.png" alt="Dibujo Digital 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital IV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 5 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital5.png" alt="Dibujo Digital 5" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital V</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 6 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital6.png" alt="Dibujo Digital 6" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital VI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 7 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital7.png" alt="Dibujo Digital 7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital VII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 8 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital8.png" alt="Dibujo Digital 8" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital VIII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 9 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital9.png" alt="Dibujo Digital 9" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital IX</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 10 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital10.png" alt="Dibujo Digital 10" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital X</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 11 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital11.png" alt="Dibujo Digital 11" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital XI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 12 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital12.png" alt="Dibujo Digital 12" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital XII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 13 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital13.png" alt="Dibujo Digital 13" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital XIII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 14 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital14.png" alt="Dibujo Digital 14" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital XIV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital • 2024</div>
+</div>
+
+<!-- Dibujo Digital 15 -->
+<div class="art-piece" data-category="dibujo-digital">
+    <img src="image/digital15.png" alt="Dibujo Digital 15" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(0, 191, 255, 0.6), rgba(123, 104, 238, 0.6)); display: none;">🖌️ Dibujo Digital</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Digital XV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Dibujo Digital •
+        </div>
+        </div> 
+                
+                <!-- DIBUJO TRADICIONAL -->
+
+                <!-- Dibujo Tradicional 1 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional.jpg" alt="Dibujo Tradicional 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional I</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 2 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional2.jpg" alt="Dibujo Tradicional 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional II</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 3 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional3.png" alt="Dibujo Tradicional 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional III</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 4 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional4.jpg" alt="Dibujo Tradicional 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional IV</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 5 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional5.jpg" alt="Dibujo Tradicional 5" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional V</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 6 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional6.jpg" alt="Dibujo Tradicional 6" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional VI</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 7 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional7.jpg" alt="Dibujo Tradicional 7" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional VII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 8 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional8.png" alt="Dibujo Tradicional 8" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional VIII</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 9 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional9.png" alt="Dibujo Tradicional 9" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional IX</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div>
+
+<!-- Dibujo Tradicional 10 -->
+<div class="art-piece" data-category="dibujo-tradicional">
+    <img src="image/dibujotradicional10.png" alt="Dibujo Tradicional 10" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="art-placeholder" style="background: linear-gradient(135deg, rgba(205, 133, 63, 0.6), rgba(160, 82, 45, 0.6)); display: none;">✏️ Dibujo Tradicional</div>
+    <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px;">Dibujo Tradicional X</div>
+    <div style="font-size: 12px; color: #5a6c7d;">Lápiz y Papel • 2024</div>
+</div> 
+            </div>
+        </div>
+    </div>
+    <!-- Ventana Contacto -->
+    <div id="contact" class="window" style="top: 150px; left: 400px; width: 600px; height: 650px;">
+        <div class="title-bar">
+            <span>📧 Contacto - Emil Tenorio Rico</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('contact')">−</div>
+                <div class="window-control" onclick="maximizeWindow('contact')">□</div>
+                <div class="window-control" onclick="closeWindow('contact')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="color: #2c3e50; margin-bottom: 15px;">💌 Contacto Profesional</h2>
+            <p style="font-size: 14px; margin-bottom: 25px; color: #5a6c7d;">¿Interesado en comisionar una carta de tarot personalizada o arte conceptual? ¡Conectemos para crear algo único y significativo!</p>
+            
+            <!-- Información de contacto -->
+            <div style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; margin-bottom: 25px; border: 1px solid rgba(255, 255, 255, 0.3);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; font-size: 13px;">
+                    <div><strong>🎨 Especialidad:</strong> Tarot Artístico</div>
+                    <div><strong>✨ Estilo:</strong> Simbolismo Místico</div>
+                    <div><strong>🔮 Enfoque:</strong> Arte Conceptual</div>
+                    <div><strong>📍 Base:</strong> Disponible Online</div>
+                </div>
+            </div>
+            
+            <!-- Formulario de contacto -->
+          
+<form id="contactForm" action="https://formspree.io/f/xrbapazl" method="POST" onsubmit="submitContactForm(event)">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+        <div class="form-group">
+            <label class="form-label" for="contactName">Nombre completo *</label>
+            <input type="text" id="contactName" name="name" class="form-input" required placeholder="Tu nombre completo">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="contactEmail">Correo electrónico *</label>
+            <input type="email" id="contactEmail" name="email" class="form-input" required placeholder="tu@email.com">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+        <div class="form-group">
+            <label class="form-label" for="contactService">Tipo de comisión</label>
+            <select id="contactService" name="service" class="form-input"> 
+                <option value="">Selecciona un servicio...</option>
+                            <option value="carta-personalizada">Carta de Tarot Personalizada</option>
+                            <option value="baraja-completa">Baraja Completa</option>
+                            <option value="arte-conceptual">Arte Conceptual</option>
+                            <option value="ilustracion-mistica">Ilustración Mística</option>
+                            <option value="simbolismo">Obra Simbólica</option>
+                            <option value="otro">Otro proyecto</option>
+                        </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="contactBudget">Presupuesto aproximado</label>
+            <select id="contactBudget" name="budget" class="form-input"> 
+                <option value="">Selecciona un rango...</option>
+                            <option value="500-1000">$500 - $1,000 MXN</option>
+                            <option value="1000-2500">$1,000 - $2,500 MXN</option>
+                            <option value="2500-5000">$2,500 - $5,000 MXN</option>
+                            <option value="5000+">Más de $5,000 MXN</option>
+                            <option value="consultar">A consultar</option>
+ </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label" for="contactMessage">Describe tu visión *</label>
+        <textarea id="contactMessage" name="message" class="form-textarea" required placeholder="..."></textarea>
+    </div>
+
+    <div style="text-align: center; margin-top: 25px;">
+        <button type="submit" class="form-button">🔮 Enviar Consulta</button>
+        <button type="button" class="form-button secondary" onclick="clearContactForm()">🗑️ Limpiar</button>
+    </div>
+     
+</form>
+</div>
+</div>
+
+
+    <!-- Ventana Comisiones -->
+    <div id="services" class="window" style="top: 70px; left: 350px; width: 800px; height: 700px;">
+        <div class="title-bar">
+            <span>💰 Comisiones de Arte - Tarot y Arte Conceptual</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('services')">−</div>
+                <div class="window-control" onclick="maximizeWindow('services')">□</div>
+                <div class="window-control" onclick="closeWindow('services')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎨 Catálogo de Comisiones Artísticas</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+                
+                <!-- Carta Individual -->
+                <div style="background: rgba(64, 224, 208, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(64, 224, 208, 0.3); border-radius: 20px; padding: 25px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">🔮</div>
+                        <h3 style="margin: 0; color: #2c3e50; font-size: 18px;">CARTA INDIVIDUAL</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #16a085; margin: 10px 0;">$800</div>
+                    </div>
+                    <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+                        <div style="margin-bottom: 12px; font-weight: 600;">✨ Incluye:</div>
+                        <div>• Carta de tarot personalizada</div>
+                        <div>• Simbolismo único</div>
+                        <div>• Alta resolución digital</div>
+                        <div>• 2 revisiones incluidas</div>
+                        <div>• Entrega en 7-10 días</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="selectPackage('carta-individual')" class="form-button">Seleccionar</button>
+                    </div>
+                </div>
+
+                <!-- Set de 3 Cartas -->
+                <div style="background: rgba(155, 89, 182, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(155, 89, 182, 0.3); border-radius: 20px; padding: 25px; position: relative; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="position: absolute; top: -10px; right: 15px; background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 5px 15px; font-size: 11px; border-radius: 15px; font-weight: 600;">POPULAR</div>
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">🃏</div>
+                        <h3 style="margin: 0; color: #2c3e50; font-size: 18px;">SET DE 3 CARTAS</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #8e44ad; margin: 10px 0;">$2,100</div>
+                    </div>
+                    <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+                        <div style="margin-bottom: 12px; font-weight: 600;">✨ Incluye:</div>
+                        <div>• 3 cartas temáticas relacionadas</div>
+                        <div>• Simbolismo coherente</div>
+                        <div>• Archivos digitales HD</div>
+                        <div>• 3 revisiones por carta</div>
+                        <div>• Bocetos preliminares</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="selectPackage('set-3-cartas')" class="form-button">Seleccionar</button>
+                    </div>
+                </div>
+
+                <!-- Arcano Mayor Completo -->
+                <div style="background: rgba(243, 156, 18, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(243, 156, 18, 0.3); border-radius: 20px; padding: 25px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">👑</div>
+                        <h3 style="margin: 0; color: #2c3e50; font-size: 18px;">ARCANO MAYOR</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #d68910; margin: 10px 0;">$15,000</div>
+                    </div>
+                    <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+                        <div style="margin-bottom: 12px; font-weight: 600;">✨ Incluye:</div>
+                        <div>• 22 cartas de Arcanos Mayores</div>
+                        <div>• Estilo artístico unificado</div>
+                        <div>• Archivos para impresión</div>
+                        <div>• Revisiones ilimitadas</div>
+                        <div>• Proceso documentado</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="selectPackage('arcano-mayor')" class="form-button">Seleccionar</button>
+                    </div>
+                </div>
+
+                <!-- Baraja Completa -->
+                <div style="background: rgba(46, 204, 113, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(46, 204, 113, 0.3); border-radius: 20px; padding: 25px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">🎴</div>
+                        <h3 style="margin: 0; color: #2c3e50; font-size: 18px;">BARAJA COMPLETA</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #27ae60; margin: 10px 0;">$35,000</div>
+                    </div>
+                    <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+                        <div style="margin-bottom: 12px; font-weight: 600;">✨ Incluye:</div>
+                        <div>• 78 cartas completas</div>
+                        <div>• Arcanos Mayores y Menores</div>
+                        <div>• Diseño de reverso único</div>
+                        <div>• Archivos listos para imprimir</div>
+                        <div>• Caja personalizada</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="selectPackage('baraja-completa')" class="form-button">Seleccionar</button>
+                    </div>
+                </div>
+
+                <!-- Arte Conceptual -->
+                <div style="background: rgba(231, 76, 60, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(231, 76, 60, 0.3); border-radius: 20px; padding: 25px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">✨</div>
+                        <h3 style="margin: 0; color: #2c3e50; font-size: 18px;">ARTE CONCEPTUAL</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #c0392b; margin: 10px 0;">$1,200</div>
+                    </div>
+                    <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+                        <div style="margin-bottom: 12px; font-weight: 600;">✨ Incluye:</div>
+                        <div>• Ilustración conceptual única</div>
+                        <div>• Simbolismo personalizado</div>
+                        <div>• 3 revisiones incluidas</div>
+                        <div>• Alta resolución</div>
+                        <div>• Proceso creativo documentado</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="selectPackage('arte-conceptual')" class="form-button">Seleccionar</button>
+                    </div>
+                </div>
+
+                <!-- Comisión Personalizada -->
+                <div style="background: rgba(52, 152, 219, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(52, 152, 219, 0.3); border-radius: 20px; padding: 25px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">🎯</div>
+                        <h3 style="margin: 0; color: #2c3e50; font-size: 18px;">COMISIÓN PERSONALIZADA</h3>
+                        <div style="font-size: 32px; font-weight: bold; color: #2980b9; margin: 10px 0;">A Cotizar</div>
+                    </div>
+                    <div style="font-size: 13px; line-height: 1.5; margin-bottom: 20px;">
+                        <div style="margin-bottom: 12px; font-weight: 600;">✨ Incluye:</div>
+                        <div>• Proyecto único a medida</div>
+                        <div>• Consulta personalizada</div>
+                        <div>• Presupuesto detallado</div>
+                        <div>• Términos flexibles</div>
+                        <div>• Asesoría completa</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="selectPackage('personalizada')" class="form-button">Consultar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Paint -->
+    <div id="paint" class="window" style="top: 50px; left: 50px; width: 700px; height: 500px;">
+        <div class="title-bar">
+            <span>🎨 Paint</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('paint')">−</div>
+                <div class="window-control" onclick="maximizeWindow('paint')">□</div>
+                <div class="window-control" onclick="closeWindow('paint')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center; gap: 15px;">
+                <button onclick="clearCanvas()" class="form-button secondary" style="margin: 0; padding: 8px 16px;">Limpiar</button>
+                <input type="color" id="colorPicker" value="#2c3e50" style="width: 40px; height: 30px; border: none; border-radius: 8px; cursor: pointer;">
+                <input type="range" id="brushSize" min="1" max="20" value="3" style="width: 100px;">
+                <span style="font-size: 12px; font-weight: 500;">Tamaño: <span id="sizeDisplay">3</span>px</span>
+            </div>
+            <canvas id="paintCanvas" width="680" height="420" style="background: white; cursor: crosshair; display: block; width: 100%; height: calc(100% - 60px);"></canvas>
+        </div>
+    </div>
+
+    <!-- Ventana Bloc de Notas -->
+    <div id="notepad" class="window" style="top: 80px; left: 120px; width: 500px; height: 400px;">
+        <div class="title-bar">
+            <span>📝 Bloc de notas - Sin título</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('notepad')">−</div>
+                <div class="window-control" onclick="maximizeWindow('notepad')">□</div>
+                <div class="window-control" onclick="closeWindow('notepad')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); display: flex; gap: 10px;">
+                <button onclick="saveNote()" class="form-button secondary" style="margin: 0; padding: 8px 16px;">Guardar</button>
+                <button onclick="clearNote()" class="form-button secondary" style="margin: 0; padding: 8px 16px;">Nuevo</button>
+            </div>
+            <textarea id="notepadText" style="width: 100%; height: calc(100% - 60px); border: none; font-family: 'Courier New', monospace; font-size: 14px; padding: 20px; resize: none; outline: none; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);" placeholder="Escribe aquí tus notas..."></textarea>
+        </div>
+    </div>
+
+    <!-- Ventana Calculadora -->
+    <div id="calculator" class="window" style="top: 120px; left: 200px; width: 280px; height: 380px;">
+        <div class="title-bar">
+            <span>🧮 Calculadora</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('calculator')">−</div>
+                <div class="window-control" onclick="maximizeWindow('calculator')">□</div>
+                <div class="window-control" onclick="closeWindow('calculator')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="background: rgba(44, 62, 80, 0.9); color: #00ff00; padding: 15px; margin-bottom: 15px; text-align: right; font-family: 'Courier New', monospace; font-size: 24px; border-radius: 10px; backdrop-filter: blur(10px);">
+                <div id="calcDisplay">0</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                <button onclick="clearCalc()" style="grid-column: span 2;" class="form-button secondary">C</button>
+                <button onclick="calcOperation('/')" class="form-button secondary">÷</button>
+                <button onclick="calcOperation('*')" class="form-button secondary">×</button>
+                
+                <button onclick="calcNumber('7')" class="form-button secondary">7</button>
+                <button onclick="calcNumber('8')" class="form-button secondary">8</button>
+                <button onclick="calcNumber('9')" class="form-button secondary">9</button>
+                <button onclick="calcOperation('-')" class="form-button secondary">-</button>
+                
+                <button onclick="calcNumber('4')" class="form-button secondary">4</button>
+                <button onclick="calcNumber('5')" class="form-button secondary">5</button>
+                <button onclick="calcNumber('6')" class="form-button secondary">6</button>
+                <button onclick="calcOperation('+')" class="form-button secondary">+</button>
+                
+                <button onclick="calcNumber('1')" class="form-button secondary">1</button>
+                <button onclick="calcNumber('2')" class="form-button secondary">2</button>
+                <button onclick="calcNumber('3')" class="form-button secondary">3</button>
+                <button onclick="calcEquals()" style="grid-row: span 2;" class="form-button">=</button>
+                
+                <button onclick="calcNumber('0')" style="grid-column: span 2;" class="form-button secondary">0</button>
+                <button onclick="calcNumber('.')" class="form-button secondary">.</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Explorador -->
+    <div id="explorer" class="window" style="top: 60px; left: 250px; width: 600px; height: 450px;">
+        <div class="title-bar">
+            <span>📁 Explorador - Portfolio Emil</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('explorer')">−</div>
+                <div class="window-control" onclick="maximizeWindow('explorer')">□</div>
+                <div class="window-control" onclick="closeWindow('explorer')">×</div>
+            </div>
+        </div>
+        <div class="window-content" style="padding: 0;">
+            <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); display: flex; align-items: center;">
+                <span style="font-size: 12px; font-weight: 500;">📍 C:\Portfolio\Emil_Tenorio</span>
+            </div>
+            <div style="display: flex; height: calc(100% - 50px);">
+                <div style="width: 180px; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-right: 1px solid rgba(255, 255, 255, 0.3); padding: 15px;">
+                    <div style="font-size: 12px; font-weight: 600; margin-bottom: 15px; color: #2c3e50;">Carpetas</div>
+                    <div onclick="loadFolder('esculturas')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">🗿 Esculturas</div>
+                    <div onclick="loadFolder('bisuteria')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">💎 Bisutería</div>
+                    <div onclick="loadFolder('collage')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">📄 Collage</div>
+                    <div onclick="loadFolder('tarot')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">🔮 Tarot</div>
+                    <div onclick="loadFolder('emotes')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">😊 Emotes</div>
+                    <div onclick="loadFolder('digital')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">🎨 Dibujo Digital</div>
+                    <div onclick="loadFolder('tradicional')" style="padding: 8px; cursor: pointer; font-size: 12px; border-radius: 8px; margin-bottom: 5px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='transparent'">✏️ Dibujo Tradicional</div>
+                </div>
+                <div style="flex: 1; padding: 15px;">
+                    <div id="fileList" style="display: grid; grid-template-columns: repeat(auto-fill, 100px); gap: 15px;">
+                        <div style="text-align: center; cursor: pointer; padding: 10px; border-radius: 10px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <div style="font-size: 40px; margin-bottom: 5px;">🔮</div>
+                            <div style="font-size: 11px; word-wrap: break-word;">La_Justicia.jpg</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer; padding: 10px; border-radius: 10px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <div style="font-size: 40px; margin-bottom: 5px;">👑</div>
+                            <div style="font-size: 11px; word-wrap: break-word;">La_Emperatriz.jpg</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer; padding: 10px; border-radius: 10px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <div style="font-size: 40px; margin-bottom: 5px;">🌍</div>
+                            <div style="font-size: 11px; word-wrap: break-word;">El_Mundo.jpg</div>
+                        </div>
+                        <div style="text-align: center; cursor: pointer; padding: 10px; border-radius: 10px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                            <div style="font-size: 40px; margin-bottom: 5px;">📝</div>
+                            <div style="font-size: 11px; word-wrap: break-word;">notas_simbolos.txt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana Reproductor -->
+    <div id="mediaplayer" class="window" style="top: 100px; left: 300px; width: 450px; height: 350px;">
+        <div class="title-bar">
+            <span>🎵 Reproductor de Windows Media</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('mediaplayer')">−</div>
+                <div class="window-control" onclick="maximizeWindow('mediaplayer')">□</div>
+                <div class="window-control" onclick="closeWindow('mediaplayer')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="text-align: center; margin-bottom: 25px;">
+                <div style="width: 250px; height: 150px; background: linear-gradient(135deg, rgba(142, 68, 173, 0.6), rgba(52, 152, 219, 0.6)); margin: 0 auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600; border-radius: 15px; backdrop-filter: blur(10px); text-shadow: 0 1px 2px rgba(0,0,0,0.3);">
+                    🔮 Visualización Mística
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="font-weight: 600; font-size: 16px; color: #2c3e50; margin-bottom: 5px;">Música para Crear Arte</div>
+                <div style="font-size: 13px; color: #5a6c7d;">Playlist Inspiracional</div>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button onclick="playPause()" id="playBtn" class="form-button" style="margin: 0 8px;">▶️ Play</button>
+                <button onclick="stopMusic()" class="form-button secondary" style="margin: 0 8px;">⏹️ Stop</button>
+                <button onclick="nextTrack()" class="form-button secondary" style="margin: 0 8px;">⏭️ Siguiente</button>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <div style="background: rgba(255, 255, 255, 0.3); height: 8px; border-radius: 4px; backdrop-filter: blur(10px); overflow: hidden;">
+                    <div id="progressBar" style="background: linear-gradient(135deg, rgba(70, 130, 180, 0.8), rgba(64, 224, 208, 0.8)); height: 100%; width: 0%; transition: width 0.3s; border-radius: 4px;"></div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top:10px; font-size:13px; color:#2c3e50; font-weight:600;" id="trackTitle">Sin pista seleccionada</div>
+            <!-- Hidden audio element used by the player (replace URLs in script.js or add local files) -->
+            <audio id="audioPlayer" crossorigin="anonymous"></audio>
+        </div>
+    </div>
+
+    <!-- Ventana Fondos Frutiger -->
+    <div id="backgrounds" class="window" style="top: 90px; left: 350px; width: 500px; height: 600px;">
+        <div class="title-bar">
+            <span>🌈 Fondos Frutiger Aero - Personalización</span>
+            <div class="window-controls">
+                <div class="window-control" onclick="minimizeWindow('backgrounds')">−</div>
+                <div class="window-control" onclick="maximizeWindow('backgrounds')">□</div>
+                <div class="window-control" onclick="closeWindow('backgrounds')">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎨 Colección de Fondos Estéticos</h2>
+            <p style="font-size: 14px; margin-bottom: 25px; color: #5a6c7d; text-align: center;">Selecciona el fondo perfecto para tu experiencia Frutiger Aero</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                
+                <!-- Naturaleza Cristal -->
+                <div class="bg-option active" onclick="changeBackgroundFromApp('default')" style="height: 80px; background-image: url('https://miro.medium.com/v2/resize:fit:1400/1*_zqJUXJaDneHRrXeXtR5vQ.webp'); position: relative; cursor: pointer; border-radius: 15px; overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 24px; margin-bottom: 5px;">🌿</div>
+                            <div style="font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0,0,0,0.7);">Naturaleza Cristal</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Fondo clásico con elementos naturales</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eco Burbujas -->
+                <div class="bg-option" onclick="changeBackgroundFromApp('eco')" style="height: 80px; background-image: url('https://frutiger-aero.org/img/frutiger-eco-2.webp'); position: relative; cursor: pointer; border-radius: 15px; overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 24px; margin-bottom: 5px;">💧</div>
+                            <div style="font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0,0,0,0.7);">Eco Burbujas</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Ambiente ecológico con burbujas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstracto Azul -->
+                <div class="bg-option" onclick="changeBackgroundFromApp('abstract')" style="height: 80px; background-image: url('https://media.licdn.com/dms/image/v2/D4E12AQGxNln4sKkPqw/article-cover_image-shrink_720_1280/B4EZXRm0VOGgAM-/0/1729688400000?e=2147483647&v=beta&t=9bqrAjryHh18QspmCmg-_FpAl33ddSvW_xZKKZfGFtY'); position: relative; cursor: pointer; border-radius: 15px; overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 24px; margin-bottom: 5px;">🌊</div>
+                            <div style="font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0,0,0,0.7);">Abstracto Azul</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Formas abstractas en tonos azules</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vista Clásico -->
+                <div class="bg-option" onclick="changeBackgroundFromApp('vista')" style="height: 80px; background-image: url('https://i.ytimg.com/vi/5SMiXLjW0g8/hq720.jpg'); position: relative; cursor: pointer; border-radius: 15px; overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 24px; margin-bottom: 5px;">🏔️</div>
+                            <div style="font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0,0,0,0.7);">Vista Clásico</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Paisaje nostálgico de Windows Vista</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gradiente Dinámico -->
+                <div class="bg-option" onclick="changeBackgroundFromApp('gradient')" style="height: 80px; background: linear-gradient(135deg, #87CEEB, #98FB98, #87CEFA, #90EE90); position: relative; cursor: pointer; border-radius: 15px; overflow: hidden; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 24px; margin-bottom: 5px;">🌈</div>
+                            <div style="font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0,0,0,0.7);">Gradiente Dinámico</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Colores suaves en movimiento</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; margin-top: 25px; border: 1px solid rgba(255, 255, 255, 0.3);">
+                <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 16px;">✨ Características Frutiger Aero</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 12px;">
+                    <div><strong>🌿 Naturaleza:</strong> Elementos orgánicos</div>
+                    <div><strong>💧 Transparencias:</strong> Efectos glass</div>
+                    <div><strong>🌈 Colores suaves:</strong> Paleta armoniosa</div>
+                    <div><strong>✨ Modernidad:</strong> Estética 2000s</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú de Inicio -->
+    <div id="startMenu" class="start-menu">
+        <div class="start-menu-header">
+            <h2>🎨 Emil Tenorio Rico</h2>
+            <p>Portfolio Artístico Frutiger Aero</p>
+        </div>
+        
+        <div class="start-menu-content">
+            <!-- Aplicaciones Principales -->
+            <div class="start-menu-section">
+                <h3>🎨 Portfolio & Arte</h3>
+                <div class="start-menu-apps">
+                    <div class="start-menu-app" onclick="openWindowFromStart('portfolio')">
+                        <img src="https://i.pinimg.com/736x/6a/8a/a2/6a8aa24b667414cb8e8e6853afef7c98.jpg" alt="Portfolio" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">🎨</div>
+                        <div class="start-menu-app-name">Portfolio</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('gallery')">
+                        <img src="https://i.pinimg.com/474x/73/e5/06/73e506e232b9491c4240e4c5b5b05546.jpg" alt="Gallery" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">🔮</div>
+                        <div class="start-menu-app-name">Galería Tarot</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('services')">
+                        <img src="https://pbs.twimg.com/media/FyyJFavWwAAQBZ8.png" alt="Services" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">💰</div>
+                        <div class="start-menu-app-name">Comisiones</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Información Personal -->
+            <div class="start-menu-section">
+                <h3>👨‍🎨 Información</h3>
+                <div class="start-menu-apps">
+                    <div class="start-menu-app" onclick="openWindowFromStart('about')">
+                        <img src="https://d2bzx2vuetkzse.cloudfront.net/images_without_background/2489889c-3e01-410c-821a-e2f075d7c69a.png" alt="About" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">👨‍🎨</div>
+                        <div class="start-menu-app-name">Sobre Mí</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('contact')">
+                        <img src="https://data.chpic.su/stickers/f/FrutigerAero_xkysluv/FrutigerAero_xkysluv_005.webp?v=1750862291" alt="Contact" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">📧</div>
+                        <div class="start-menu-app-name">Contacto</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Herramientas Creativas -->
+            <div class="start-menu-section">
+                <h3>🛠️ Herramientas</h3>
+                <div class="start-menu-apps">
+                    <div class="start-menu-app" onclick="openWindowFromStart('paint')">
+                        <img src="https://preview.redd.it/glossy-desktop-icons-i-made-for-my-own-pc-feel-free-to-use-v0-50du63jpoz9f1.png?width=640&crop=smart&auto=webp&s=744ed96e18ce356a55ea7def08d2e3dc94b86b42" alt="Paint" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">🎨</div>
+                        <div class="start-menu-app-name">Paint</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('notepad')">
+                        <img src="https://i.postimg.cc/ZKCpWhQz/Notepad-Vista-10.webp" alt="Notepad" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">📝</div>
+                        <div class="start-menu-app-name">Bloc de Notas</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('calculator')">
+                        <img src="https://64.media.tumblr.com/0112b8cc7f3b329a8c6fad70e1a5d885/b5ed4f93b6d8f3b9-0f/s540x810/2e123d1cdaa4949c3c999a4b31868d81ba2df63e.png" alt="Calculator" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">🧮</div>
+                        <div class="start-menu-app-name">Calculadora</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sistema y Multimedia -->
+            <div class="start-menu-section">
+                <h3>💻 Sistema</h3>
+                <div class="start-menu-apps">
+                    <div class="start-menu-app" onclick="openWindowFromStart('explorer')">
+                        <img src="https://preview.redd.it/frutiger-aero-style-file-explorer-logo-v0-fq1qe31yml2c1.png?width=256&auto=webp&s=c76902f9f6c4a5abb4b61c0af06e4ecf70072ead" alt="Explorer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">📁</div>
+                        <div class="start-menu-app-name">Explorador</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('mediaplayer')">
+                        <img src="https://files.softicons.com/download/application-icons/msn-icons-by-chris-scholten/ico/music-girl.ico" alt="Media Player" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">🎵</div>
+                        <div class="start-menu-app-name">Reproductor</div>
+                    </div>
+                    
+                    <div class="start-menu-app" onclick="openWindowFromStart('backgrounds')">
+                        <img src="https://i.pinimg.com/474x/b5/8a/42/b58a42f0c8f4c4a0c8f4c4a0c8f4c4a0.jpg" alt="Backgrounds" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="start-menu-app-icon" style="display: none;">🌈</div>
+                        <div class="start-menu-app-name">Fondos</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="start-menu-footer">
+            <div class="start-menu-user">
+                <div class="start-menu-avatar">E</div>
+                <div class="start-menu-username">Emil Tenorio</div>
+            </div>
+            <button class="start-menu-power" onclick="showPowerOptions()">⚡ Apagar</button>
+        </div>
+    </div>
+
+    <!-- Notificaciones -->
+    <div id="notification" class="notification">
+        <div class="notification-title" id="notificationTitle">Mensaje enviado</div>
+        <div class="notification-message" id="notificationMessage">Tu consulta ha sido enviada correctamente.</div>
+    </div>
+
+    <script src ="script.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974dc72c63a92e4f',t:'MTc1NjE1MzEwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
